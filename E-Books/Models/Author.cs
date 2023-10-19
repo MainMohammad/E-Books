@@ -6,9 +6,21 @@ namespace E_Books.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public string Biography { get; set; }
         
+        [Required(ErrorMessage = "Name is required!")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Age is required!")]
+        public int Age { get; set; }
+
+        [Required(ErrorMessage = "Bio is required!")]
+        public string Biography { get; set; }
+
+        [Required(ErrorMessage = "Profile is required!")]
+        [Display(Name = "Profile")]
+        public string ProfileURL { get; set; }
+        
+        //Relations
+        public List<Author_Book>? Authors_Books { get; set; }
     }
 }
