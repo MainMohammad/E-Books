@@ -272,6 +272,332 @@ namespace E_Books.Data
                         }
                     });
                 }
+
+                if(!context.Books.Any())
+                {
+                    context.Books.AddRange(new List<Book>()
+                    {
+                        new Book()
+                        {
+                            Title = "Beyond the end of the world",
+                            Summary = "Tragedy looms as the cloudland engines falter and mist rains terror on the surface, " +
+                            "and in their desperation to reunite and save their people, Nimh and North face one" +
+                            " ultimate question: can they defy their love and their destiny to save their homes?",
+                            PublishDate = new DateTime(2022, 01, 18),
+                            Price = 9.04M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Tiny pretty things",
+                            Summary = "Tiny Pretty Things is set in the world of an elite ballet academy and charts the rise " +
+                            "and fall of young adults who live far from their homes, each standing on the verge of greatness or ruin.",
+                            PublishDate = new DateTime(2016, 07, 12),
+                            Price = 11.55M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Heres to us",
+                            Summary = "Arthur is in New York for a dream internship on Broadway, with a boyfriend back at " +
+                            "home that he couldn't be happier with. But when he comes upon " +
+                            "Ben cuddled up with a mystery boy, he starts to wonder if his feelings for Ben ever truly went away.",
+                            PublishDate = new DateTime(2022, 11, 29),
+                            Price = 2.15M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "A thousand beginnings and endings",
+                            Summary = "The stories within this anthology cover and explore a number of themes all while allowing " +
+                            "the each author to bring a unique spin to their favorite folktales & stories!",
+                            PublishDate = new DateTime(2020, 01, 14),
+                            Price = 1.73M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Yes, No maybe so",
+                            Summary = "a story about how two individuals with different personalities come together to work on political matters. " +
+                            "The two main characters, " +
+                            "Jamie Goldberg and Maya Rehman spend a lot of time together and eventually fall for each other.",
+                            PublishDate = new DateTime(2020, 02, 04),
+                            Price = 1.18M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Save Steve",
+                            Summary = "Steve Stevenson is a jerk. That might not be a cool thing to say about someone with cancer, but it’s true. Yeah, " +
+                            "he throws legendary parties and is the most popular guy in school, but he also loves humiliating pranks and Cardi B, and he doesn’t recycle. " +
+                            "Worst of all, he’s dating Kaia—the girl of nice guy Cam’s dreams.",
+                            PublishDate = new DateTime(2020, 08, 30),
+                            Price = 7.40M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Twin crowns",
+                            Summary = "Wren Greenrock has always known that one day she’d steal her sister’s place on the throne. Trained from birth to return to the palace " +
+                            "and avenge her parents’ murder, she’ll do anything to become queen and protect the community of witches who raised her. Or she would, " +
+                            "if only a certain guard wasn’t quite so distractingly attractive, and if her reckless magic would stop causing trouble...",
+                            PublishDate = new DateTime(2023, 04, 04),
+                            Price = 11.17M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "The call of wild",
+                            Summary = "This triumphant tale of survival follows the adventures of Buck, half-St. Bernard and half-Scottish sheepdog, " +
+                            "who is forced into the brutal life of a sled-dog during the heady days of the Alaska gold rush.",
+                            PublishDate = new DateTime(1903, 07, 01),
+                            Price = 4.95M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "White fang",
+                            Summary = "It follows the story of a wolf-dog hybrid, White Fang, as he embarks on a journey of self-discovery. After his mother " +
+                            "is killed by a group of Native Americans, White Fang is adopted by a man named Grey Beaver, who teaches him " +
+                            "the way of the wild and introduces him to the harsh realities of life. White Fang is then sold to a cruel and abusive owner, but...",
+                            PublishDate = new DateTime(1906, 05, 02),
+                            Price = 6.95M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Martin Eden",
+                            Summary = "A young working class seaman, he struggles to become a successful writer. Rejected repeatedly by publishers, he continues to submit his work. Along the way, " +
+                            "he educates himself with the help of his love interest, Ruth, an upper class student whose parents disdain Eden. " +
+                            "He finally achieves success but despairs that people value him only for his fame, and not for himself.",
+                            PublishDate = new DateTime(1909, 09, 05),
+                            Price = 9.76M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "To build a fire",
+                            Summary = "This superb volume brings together twenty-five of London's finest, including a dozen of his great " +
+                            "Klondike stories, vivid tales of the Far North were rugged " +
+                            "individuals, such as the Malemute Kid face the violence of man and nature during the Gold Rush Days.",
+                            PublishDate = new DateTime(1908, 08, 01),
+                            Price = 1.35M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "The sea wolf",
+                            Summary = "Humphrey van Weyden, is a literary critic who is a survivor of " +
+                            "an ocean collision and who comes under the dominance of Wolf Larsen, the powerful and amoral sea captain who rescues him.",
+                            PublishDate = new DateTime(1904, 06, 25),
+                            Price = 2.71M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "The iron heel",
+                            Summary = "a futuristic world in which the division between the classes has deepened, creating a " +
+                            "menacing oligarchy that rules through terror.",
+                            PublishDate = new DateTime(1908, 10, 13),
+                            Price = 7.99M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "The son of the wolf",
+                            Summary = "\"The Son Of The Wolf\" is a collection of short stories, all with a common subject - the northern part of the American continent, " +
+                            "the pursuit of gold during the rush in Yukon, and mainly the dealings between the locals (Native Americans) and the European settlers",
+                            PublishDate = new DateTime(1922, 06, 11),
+                            Price = 4.45M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Brown wolf",
+                            Summary = "Some stupid stories",
+                            PublishDate = new DateTime(1920, 06, 11),
+                            Price = 6.94M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "The white silence",
+                            Summary = "The story chronicles the travels of three people across the Northland " +
+                            "Trail on the Yukon, as they try to reach civilization before spring.",
+                            PublishDate = new DateTime(1899, 02, 16),
+                            Price = 5.13M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Hamlet",
+                            Summary = "Prince Hamlet and his revenge against his uncle, Claudius, who has murdered " +
+                            "Hamlet's father in order to seize his throne and marry Hamlet's mother.",
+                            PublishDate = new DateTime(1599, 01, 01),
+                            Price = 6.24M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Othelo",
+                            Summary = "A Moorish general in command of the armed forces of Venice who earns the " +
+                            "enmity of his ensign Iago by passing him over for a promotion. " +
+                            "Partly for revenge and partly out of pure evil, Iago plots to convince Othello that Desdemona, his wife, has been unfaithful to him.",
+                            PublishDate = new DateTime(1601, 01, 01),
+                            Price = 2.50M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Romeo & Juliet",
+                            Summary = "Romeo and Juliet is a famous tragedy written by William Shakespeare early in his career " +
+                            "about the romance between two Italian youths from feuding families.",
+                            PublishDate = new DateTime(1597, 01, 01),
+                            Price = 6.99M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Macbeth",
+                            Summary = "\"Macbeth is one of Shakespeare's finest plays, and presents a man's conscience and the " +
+                            "effect of guilt on his mind. A dark and bloody play.",
+                            PublishDate = new DateTime(1603, 11, 03),
+                            Price = 5.24M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "King Lear",
+                            Summary = "King Lear is a tragedy based on the chronicle history of a pre-Roman, Celtic king of Britain. " +
+                            "In Shakespeare's play, Lear, intending to retire, stages a love test for his three daughters...",
+                            PublishDate = new DateTime(1606, 12, 26),
+                            Price = 8.01M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Venus & Adonis",
+                            Summary = "The poem tells the story of Venus, the goddess of Love; of her unrequited love; and of her attempted seduction of Adonis.",
+                            PublishDate = new DateTime(1593, 05, 05),
+                            Price = 3.14M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "I sell my dreams",
+                            Summary = "Frau Frieda turned her skills as a psychic to earn a livelihood. She was hired by a woman in Vienna where she was given a " +
+                            "salary, a room to stay and adequate meals every day. ",
+                            PublishDate = new DateTime(1980, 05, 05),
+                            Price = 5.62M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "News of a kidnapping",
+                            Summary = "News of a Kidnapping is a deeply personal account that pays tribute to the author's " +
+                            "friends Maruja Pachón, one of the people kidnapped by Escobar's men, and her husband, Alberto Villamizar.",
+                            PublishDate = new DateTime(1996, 07, 23),
+                            Price = 15.10M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Big momma's funeral",
+                            Summary = "\"Big Mama's Funeral\" is a long short story by Gabriel García Márquez that " +
+                            "satirizes Latin American life and culture. It displays the exaggeration associated with magic realism.",
+                            PublishDate = new DateTime(1962, 07, 23),
+                            Price = 10.00M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "One hundred years of solitude",
+                            Summary = "The Buendía family, whose patriarch, José Arcadio Buendía, founded the fictitious town of Macondo...",
+                            PublishDate = new DateTime(1967, 05, 05),
+                            Price = 8.03M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "No one writes to Colonel",
+                            Summary = " García Márquez considered it his best book, saying that he had to write One Hundred Years of " +
+                            "Solitude so that people would read No One Writes to the Colonel.",
+                            PublishDate = new DateTime(1961, 05, 05),
+                            Price = 17.50M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Harry Potter and the Philosopher's stone",
+                            Summary = "The book is about 11 year old Harry Potter, who receives a letter saying that he is invited to attend Hogwarts, " +
+                            "school of witchcraft and wizardry.",
+                            PublishDate = new DateTime(1997, 06, 26),
+                            Price = 9.50M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Harry Potter and the chamber of secrets",
+                            Summary = "The plot follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, during which a series of " +
+                            "messages on the walls of the school's corridors warn that the \"Chamber of Secrets\" has been opened...",
+                            PublishDate = new DateTime(1998, 11, 05),
+                            Price = 9.50M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Harry Potter and the prisoner of Azkaban",
+                            Summary = "The book follows Harry Potter, a young wizard, in his third year at Hogwarts School of Witchcraft and Wizardry. " +
+                            "Along with friends Ronald Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban...",
+                            PublishDate = new DateTime(1999, 07, 08),
+                            Price = 9.50M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Harry Potter and the goblet of fire",
+                            Summary = "It follows Harry Potter, a wizard in his fourth year at Hogwarts School of Witchcraft and Wizardry, " +
+                            "and the mystery surrounding the entry of Harry's name into the Triwizard Tournament, in which he is forced to compete.",
+                            PublishDate = new DateTime(2000, 07, 08),
+                            Price = 9.50M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Harry Potter and the order of Phoenix",
+                            Summary = "It follows Harry Potter's struggles through his fifth year at Hogwarts School of Witchcraft and Wizardry, " +
+                            "including the surreptitious return of the antagonist Lord Voldemort, O.W.L. exams, and an obstructive Ministry of Magic",
+                            PublishDate = new DateTime(2003, 06, 21),
+                            Price = 9.50M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Harry Potter and the Half-Blood prince",
+                            Summary = " Harry Potter learns a lot about Lord Voldemort's past, and Harry Potter prepares for the final battle against " +
+                            "his nemesis with the help of Headmaster Dumbledore. But in that time, Voldemort returns to power, and makes a plan to destroy Harry.",
+                            PublishDate = new DateTime(2005, 07, 16),
+                            Price = 9.50M,
+                        },
+
+
+                        new Book()
+                        {
+                            Title = "Harry Potter and the deathly hallows",
+                            Summary = "He finally kills the bad person",
+                            PublishDate = new DateTime(2007, 07, 21),
+                            Price = 9.50M,
+                        },
+
+                        new Book()
+                        {
+                            Title = "Harry Potter and the cursed child",
+                            Summary = "His stupid boy returns Voldemort",
+                            PublishDate = new DateTime(2016, 07, 31),
+                            Price = 9.50M,
+                        }
+                    });
+                }
             }
         }
     }
