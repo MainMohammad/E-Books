@@ -285,6 +285,7 @@ namespace E_Books.Data
                             " ultimate question: can they defy their love and their destiny to save their homes?",
                             PublishDate = new DateTime(2022, 01, 18),
                             Price = 9.04M,
+                            PublisherId = 1,
                         },
 
                         new Book()
@@ -294,6 +295,7 @@ namespace E_Books.Data
                             "and fall of young adults who live far from their homes, each standing on the verge of greatness or ruin.",
                             PublishDate = new DateTime(2016, 07, 12),
                             Price = 11.55M,
+                            PublisherId = 1,
                         },
 
                         new Book()
@@ -304,6 +306,7 @@ namespace E_Books.Data
                             "Ben cuddled up with a mystery boy, he starts to wonder if his feelings for Ben ever truly went away.",
                             PublishDate = new DateTime(2022, 11, 29),
                             Price = 2.15M,
+                            PublisherId = 1,
                         },
 
                         new Book()
@@ -313,6 +316,7 @@ namespace E_Books.Data
                             "the each author to bring a unique spin to their favorite folktales & stories!",
                             PublishDate = new DateTime(2020, 01, 14),
                             Price = 1.73M,
+                            PublisherId = 1,
                         },
 
                         new Book()
@@ -323,6 +327,7 @@ namespace E_Books.Data
                             "Jamie Goldberg and Maya Rehman spend a lot of time together and eventually fall for each other.",
                             PublishDate = new DateTime(2020, 02, 04),
                             Price = 1.18M,
+                            PublisherId = 1,
                         },
 
                         new Book()
@@ -333,6 +338,7 @@ namespace E_Books.Data
                             "Worst of all, he’s dating Kaia—the girl of nice guy Cam’s dreams.",
                             PublishDate = new DateTime(2020, 08, 30),
                             Price = 7.40M,
+                            PublisherId = 1,
                         },
 
                         new Book()
@@ -343,6 +349,7 @@ namespace E_Books.Data
                             "if only a certain guard wasn’t quite so distractingly attractive, and if her reckless magic would stop causing trouble...",
                             PublishDate = new DateTime(2023, 04, 04),
                             Price = 11.17M,
+                            PublisherId = 1,
                         },
 
                         new Book()
@@ -352,6 +359,7 @@ namespace E_Books.Data
                             "who is forced into the brutal life of a sled-dog during the heady days of the Alaska gold rush.",
                             PublishDate = new DateTime(1903, 07, 01),
                             Price = 4.95M,
+                            PublisherId = 1,
                         },
 
                         new Book()
@@ -362,6 +370,7 @@ namespace E_Books.Data
                             "the way of the wild and introduces him to the harsh realities of life. White Fang is then sold to a cruel and abusive owner, but...",
                             PublishDate = new DateTime(1906, 05, 02),
                             Price = 6.95M,
+                            PublisherId = 1,
                         },
 
                         new Book()
@@ -372,6 +381,7 @@ namespace E_Books.Data
                             "He finally achieves success but despairs that people value him only for his fame, and not for himself.",
                             PublishDate = new DateTime(1909, 09, 05),
                             Price = 9.76M,
+                            PublisherId = 2,
                         },
 
                         new Book()
@@ -382,6 +392,7 @@ namespace E_Books.Data
                             "individuals, such as the Malemute Kid face the violence of man and nature during the Gold Rush Days.",
                             PublishDate = new DateTime(1908, 08, 01),
                             Price = 1.35M,
+                            PublisherId = 2,
                         },
 
                         new Book()
@@ -391,6 +402,7 @@ namespace E_Books.Data
                             "an ocean collision and who comes under the dominance of Wolf Larsen, the powerful and amoral sea captain who rescues him.",
                             PublishDate = new DateTime(1904, 06, 25),
                             Price = 2.71M,
+                            PublisherId = 2,
                         },
 
                         new Book()
@@ -400,6 +412,7 @@ namespace E_Books.Data
                             "menacing oligarchy that rules through terror.",
                             PublishDate = new DateTime(1908, 10, 13),
                             Price = 7.99M,
+                            PublisherId = 2,
                         },
 
                         new Book()
@@ -409,6 +422,7 @@ namespace E_Books.Data
                             "the pursuit of gold during the rush in Yukon, and mainly the dealings between the locals (Native Americans) and the European settlers",
                             PublishDate = new DateTime(1922, 06, 11),
                             Price = 4.45M,
+                            PublisherId = 2,
                         },
 
                         new Book()
@@ -417,6 +431,7 @@ namespace E_Books.Data
                             Summary = "Some stupid stories",
                             PublishDate = new DateTime(1920, 06, 11),
                             Price = 6.94M,
+                            PublisherId = 2,
                         },
 
                         new Book()
@@ -426,6 +441,7 @@ namespace E_Books.Data
                             "Trail on the Yukon, as they try to reach civilization before spring.",
                             PublishDate = new DateTime(1899, 02, 16),
                             Price = 5.13M,
+                            PublisherId = 2,
                         },
 
                         new Book()
@@ -435,6 +451,7 @@ namespace E_Books.Data
                             "Hamlet's father in order to seize his throne and marry Hamlet's mother.",
                             PublishDate = new DateTime(1599, 01, 01),
                             Price = 6.24M,
+                            PublisherId = 2,
                         },
 
                         new Book()
@@ -445,6 +462,7 @@ namespace E_Books.Data
                             "Partly for revenge and partly out of pure evil, Iago plots to convince Othello that Desdemona, his wife, has been unfaithful to him.",
                             PublishDate = new DateTime(1601, 01, 01),
                             Price = 2.50M,
+                            PublisherId = 3,
                         },
 
                         new Book()
@@ -454,6 +472,7 @@ namespace E_Books.Data
                             "about the romance between two Italian youths from feuding families.",
                             PublishDate = new DateTime(1597, 01, 01),
                             Price = 6.99M,
+                            PublisherId = 3,
                         },
 
                         new Book()
@@ -463,6 +482,7 @@ namespace E_Books.Data
                             "effect of guilt on his mind. A dark and bloody play.",
                             PublishDate = new DateTime(1603, 11, 03),
                             Price = 5.24M,
+                            PublisherId = 3,
                         },
 
                         new Book()
@@ -472,6 +492,7 @@ namespace E_Books.Data
                             "In Shakespeare's play, Lear, intending to retire, stages a love test for his three daughters...",
                             PublishDate = new DateTime(1606, 12, 26),
                             Price = 8.01M,
+                            PublisherId = 3,
                         },
 
                         new Book()
@@ -480,6 +501,7 @@ namespace E_Books.Data
                             Summary = "The poem tells the story of Venus, the goddess of Love; of her unrequited love; and of her attempted seduction of Adonis.",
                             PublishDate = new DateTime(1593, 05, 05),
                             Price = 3.14M,
+                            PublisherId = 3,
                         },
 
                         new Book()
@@ -489,6 +511,7 @@ namespace E_Books.Data
                             "salary, a room to stay and adequate meals every day. ",
                             PublishDate = new DateTime(1980, 05, 05),
                             Price = 5.62M,
+                            PublisherId = 3,
                         },
 
                         new Book()
@@ -498,6 +521,7 @@ namespace E_Books.Data
                             "friends Maruja Pachón, one of the people kidnapped by Escobar's men, and her husband, Alberto Villamizar.",
                             PublishDate = new DateTime(1996, 07, 23),
                             Price = 15.10M,
+                            PublisherId = 3,
                         },
 
                         new Book()
@@ -507,6 +531,7 @@ namespace E_Books.Data
                             "satirizes Latin American life and culture. It displays the exaggeration associated with magic realism.",
                             PublishDate = new DateTime(1962, 07, 23),
                             Price = 10.00M,
+                            PublisherId = 3,
                         },
 
                         new Book()
@@ -515,6 +540,7 @@ namespace E_Books.Data
                             Summary = "The Buendía family, whose patriarch, José Arcadio Buendía, founded the fictitious town of Macondo...",
                             PublishDate = new DateTime(1967, 05, 05),
                             Price = 8.03M,
+                            PublisherId = 3,
                         },
 
                         new Book()
@@ -524,6 +550,7 @@ namespace E_Books.Data
                             "Solitude so that people would read No One Writes to the Colonel.",
                             PublishDate = new DateTime(1961, 05, 05),
                             Price = 17.50M,
+                            PublisherId = 4,
                         },
 
                         new Book()
@@ -533,6 +560,7 @@ namespace E_Books.Data
                             "school of witchcraft and wizardry.",
                             PublishDate = new DateTime(1997, 06, 26),
                             Price = 9.50M,
+                            PublisherId = 4,
                         },
 
                         new Book()
@@ -542,6 +570,7 @@ namespace E_Books.Data
                             "messages on the walls of the school's corridors warn that the \"Chamber of Secrets\" has been opened...",
                             PublishDate = new DateTime(1998, 11, 05),
                             Price = 9.50M,
+                            PublisherId = 4,
                         },
 
                         new Book()
@@ -551,6 +580,7 @@ namespace E_Books.Data
                             "Along with friends Ronald Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban...",
                             PublishDate = new DateTime(1999, 07, 08),
                             Price = 9.50M,
+                            PublisherId = 4,
                         },
 
                         new Book()
@@ -560,6 +590,7 @@ namespace E_Books.Data
                             "and the mystery surrounding the entry of Harry's name into the Triwizard Tournament, in which he is forced to compete.",
                             PublishDate = new DateTime(2000, 07, 08),
                             Price = 9.50M,
+                            PublisherId = 1,
                         },
 
                         new Book()
@@ -569,6 +600,7 @@ namespace E_Books.Data
                             "including the surreptitious return of the antagonist Lord Voldemort, O.W.L. exams, and an obstructive Ministry of Magic",
                             PublishDate = new DateTime(2003, 06, 21),
                             Price = 9.50M,
+                            PublisherId = 2,
                         },
 
                         new Book()
@@ -578,6 +610,7 @@ namespace E_Books.Data
                             "his nemesis with the help of Headmaster Dumbledore. But in that time, Voldemort returns to power, and makes a plan to destroy Harry.",
                             PublishDate = new DateTime(2005, 07, 16),
                             Price = 9.50M,
+                            PublisherId = 3,
                         },
 
 
@@ -587,6 +620,7 @@ namespace E_Books.Data
                             Summary = "He finally kills the bad person",
                             PublishDate = new DateTime(2007, 07, 21),
                             Price = 9.50M,
+                            PublisherId = 4,
                         },
 
                         new Book()
@@ -595,8 +629,11 @@ namespace E_Books.Data
                             Summary = "His stupid boy returns Voldemort",
                             PublishDate = new DateTime(2016, 07, 31),
                             Price = 9.50M,
+                            PublisherId = 1,
                         }
                     });
+
+
                 }
             }
         }
