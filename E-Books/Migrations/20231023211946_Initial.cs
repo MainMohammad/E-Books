@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace E_Books.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -70,6 +70,8 @@ namespace E_Books.Migrations
                     PublishDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Summary = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BookCover = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Genre = table.Column<int>(type: "int", nullable: false),
                     PublisherId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

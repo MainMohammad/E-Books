@@ -250,6 +250,7 @@ namespace E_Books.Data
                             LogoURL = "https://s3.amazonaws.com/company-photo.theladders.com/9310/435052b8-e9ba-4445-93fa-82bbb623ae0d.jpg"
                         }
                     });
+                    context.SaveChanges();
                 }
 
                 //Seeding Book stores...
@@ -281,6 +282,7 @@ namespace E_Books.Data
                             LogoURL = "https://twelve-books.com/cdn/shop/collections/rizzoli-logo_large.jpg?v=1649411303"
                         }
                     });
+                    context.SaveChanges();
                 }
 
                 //Seeding books...
@@ -712,6 +714,7 @@ namespace E_Books.Data
                             BookCover = "https://m.media-amazon.com/images/I/71fX7PG24hL._AC_UF1000,1000_QL80_.jpg"
                         }
                     });
+                    context.SaveChanges();
                 }
 
                 //Assigning books to its author/authors
@@ -971,6 +974,7 @@ namespace E_Books.Data
                             BookId = 35
                         },
                     });
+                    context.SaveChanges();
                 }
 
                 //Storing Books in bookstores
@@ -1266,6 +1270,7 @@ namespace E_Books.Data
                             BookId = 35
                         },
                     });
+                    context.SaveChanges();
                 }
             }
         }
