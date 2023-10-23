@@ -557,7 +557,8 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1593, 05, 05),
                             Price = 3.14M,
                             PublisherId = 3,
-                            Genre = BookGenre.Drama
+                            Genre = BookGenre.Drama,
+                            BookCover = "https://m.media-amazon.com/images/I/71lSxMk7i8L._AC_UF1000,1000_QL80_.jpg"
                         },
 
                         new Book()
