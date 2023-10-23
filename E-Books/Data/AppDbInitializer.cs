@@ -26,6 +26,15 @@ namespace E_Books.Data
                             "Australia with her husband and dog.",
                             ProfileURL = "https://res.akamaized.net/domain/image/fetch/t_web/https://static.domain.com.au/twr/production/uploads/2017/08/25024719/TWR-30-Aug-Q-and-A-Amie-Kaufman-1950x1299-web.jpg"
                         },
+
+                        new Author()
+                        {
+                            Name = "Meagan Spooner",
+                            Age = DateTime.Now.Year - 1995,
+                            Biography = "Meagan Spooner was raised in the United States and graduated from Thomas " +
+                            "Jefferson High School for Science and Technology. She graduated from Hamilton College with a degree in playwriting.",
+                            ProfileURL = "https://www.davidhigham.co.uk/wp-content/uploads/1359475655Meagan_Spooner.jpg",
+                        },
                         
                         new Author()
                         {
@@ -230,7 +239,7 @@ namespace E_Books.Data
 
                         new Publisher()
                         {
-                            Name = "",
+                            Name = "Macmillan",
                             Description = "Macmillan Publishers is a leading publishing company and home to some " +
                             "of the world's most cherished authors and creators. Our imprints publish a wide " +
                             "range of genres and formats for every kind of reader — from adult fiction and " +
@@ -273,6 +282,7 @@ namespace E_Books.Data
                     });
                 }
 
+                //Seeding books...
                 if(!context.Books.Any())
                 {
                     context.Books.AddRange(new List<Book>()
@@ -632,8 +642,560 @@ namespace E_Books.Data
                             PublisherId = 1,
                         }
                     });
+                }
 
+                //Assigning books to its author/authors
+                if (!context.Authors_Books.Any())
+                {
+                    context.Authors_Books.AddRange(new List<Author_Book>()
+                    {
+                        new Author_Book()
+                        {
+                            AuthorId = 1,
+                            BookId = 1
+                        },
 
+                        new Author_Book()
+                        {
+                            AuthorId = 2,
+                            BookId = 1
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 3,
+                            BookId = 2
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 4,
+                            BookId = 2
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 5,
+                            BookId = 3
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 6,
+                            BookId = 3
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 7,
+                            BookId = 4
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 8,
+                            BookId = 4
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 5,
+                            BookId = 5
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 9,
+                            BookId = 5
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 10,
+                            BookId = 6
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 11,
+                            BookId = 6
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 12,
+                            BookId = 7
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 13,
+                            BookId = 7
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 14,
+                            BookId = 8
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 14,
+                            BookId = 9
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 14,
+                            BookId = 10
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 14,
+                            BookId = 11
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 14,
+                            BookId = 12
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 14,
+                            BookId = 13
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 14,
+                            BookId = 14
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 14,
+                            BookId = 15
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 14,
+                            BookId = 16
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 15,
+                            BookId = 17
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 15,
+                            BookId = 18
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 15,
+                            BookId = 19
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 15,
+                            BookId = 20
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 15,
+                            BookId = 21
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 15,
+                            BookId = 22
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 16,
+                            BookId = 23
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 16,
+                            BookId = 24
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 16,
+                            BookId = 25
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 16,
+                            BookId = 26
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 16,
+                            BookId = 27
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 17,
+                            BookId = 28
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 17,
+                            BookId = 29
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 17,
+                            BookId = 30
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 17,
+                            BookId = 31
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 17,
+                            BookId = 32
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 17,
+                            BookId = 33
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 17,
+                            BookId = 34
+                        },
+
+                        new Author_Book()
+                        {
+                            AuthorId = 17,
+                            BookId = 35
+                        },
+                    });
+                }
+
+                //Storing Books in bookstores
+                if (!context.BookStores_Books.Any())
+                {
+                    context.BookStores_Books.AddRange(new List<BookStore_Book>()
+                    {
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 1
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 2
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 3
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 4
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 5
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 6
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 7
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 8
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 9
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 10
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 11
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 12
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 13
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 1,
+                            BookId = 14
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 7
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 8
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 9
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 10
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 11
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 12
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 13
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 14
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 15
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 16
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 17
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 18
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 19
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 20
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 2,
+                            BookId = 21
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 17
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 18
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 19
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 20
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 21
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 22
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 23
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 24
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 25
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 26
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 27
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 28
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 29
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 30
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 31
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 32
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 33
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 34
+                        },
+
+                        new BookStore_Book()
+                        {
+                            BookStoreId = 3,
+                            BookId = 35
+                        },
+                    });
                 }
             }
         }
