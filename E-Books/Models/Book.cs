@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using E_Books.Data.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace E_Books.Models
@@ -21,6 +22,13 @@ namespace E_Books.Models
 
         [Required(ErrorMessage = " Summary is required!")]
         public string Summary { get; set; }
+
+        [Required(ErrorMessage = "Cover is required!")]
+        [Display(Name = "Cover")]
+        public string BookCover { get; set; }
+
+        [Required(ErrorMessage = "Genre is required!")]
+        public BookGenre Genre { get; set; }
 
         //Relations
         // Many to manies

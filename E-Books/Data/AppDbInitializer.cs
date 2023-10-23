@@ -1,4 +1,5 @@
 ﻿using E_Books.Models;
+using E_Books.Data.Enums;
 
 namespace E_Books.Data
 {
@@ -296,6 +297,8 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2022, 01, 18),
                             Price = 9.04M,
                             PublisherId = 1,
+                            Genre = BookGenre.Fantasy,
+                            BookCover = "https://images.pangobooks.com/images/9a466610-c587-4d7c-a649-338b0ad92e8c?quality=85&width=1200&crop=1%3A1"
                         },
 
                         new Book()
@@ -306,6 +309,8 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2016, 07, 12),
                             Price = 11.55M,
                             PublisherId = 1,
+                            Genre = BookGenre.Fiction,
+                            BookCover = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReArvAUZJtqQMJTX8XMNJ82TT_Y5Bi9eCKS0YNrOcBMF7MVZf7KagqeLmPUtJ2HxBgGEc&usqp=CAU"
                         },
 
                         new Book()
@@ -317,6 +322,8 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2022, 11, 29),
                             Price = 2.15M,
                             PublisherId = 1,
+                            Genre = BookGenre.Fiction,
+                            BookCover = "https://img1.od-cdn.com/ImageType-400/0293-1/B84/4DF/C7/%7BB844DFC7-5712-42C9-B1AB-580B6A4D895D%7DImg400.jpg"
                         },
 
                         new Book()
@@ -327,6 +334,8 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2020, 01, 14),
                             Price = 1.73M,
                             PublisherId = 1,
+                            Genre = BookGenre.Fantasy,
+                            BookCover = "https://m.media-amazon.com/images/I/51R-s+QdP-L.SX316.SY480._SL500_.jpg"
                         },
 
                         new Book()
@@ -338,6 +347,8 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2020, 02, 04),
                             Price = 1.18M,
                             PublisherId = 1,
+                            Genre = BookGenre.Romance,
+                            BookCover = "https://m.media-amazon.com/images/I/71BGiWlLvkL._AC_UF1000,1000_QL80_.jpg"
                         },
 
                         new Book()
@@ -349,6 +360,8 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2020, 08, 30),
                             Price = 7.40M,
                             PublisherId = 1,
+                            Genre = BookGenre.Fiction,
+                            BookCover = ""
                         },
 
                         new Book()
@@ -360,6 +373,8 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2023, 04, 04),
                             Price = 11.17M,
                             PublisherId = 1,
+                            Genre = BookGenre.Fantasy,
+                            BookCover = ""
                         },
 
                         new Book()
@@ -370,6 +385,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1903, 07, 01),
                             Price = 4.95M,
                             PublisherId = 1,
+                            Genre = BookGenre.Advanture
                         },
 
                         new Book()
@@ -381,6 +397,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1906, 05, 02),
                             Price = 6.95M,
                             PublisherId = 1,
+                            Genre = BookGenre.Advanture
                         },
 
                         new Book()
@@ -392,6 +409,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1909, 09, 05),
                             Price = 9.76M,
                             PublisherId = 2,
+                            Genre = BookGenre.Fiction
                         },
 
                         new Book()
@@ -403,6 +421,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1908, 08, 01),
                             Price = 1.35M,
                             PublisherId = 2,
+                            Genre = BookGenre.Advanture
                         },
 
                         new Book()
@@ -413,6 +432,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1904, 06, 25),
                             Price = 2.71M,
                             PublisherId = 2,
+                            Genre = BookGenre.Fiction
                         },
 
                         new Book()
@@ -423,6 +443,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1908, 10, 13),
                             Price = 7.99M,
                             PublisherId = 2,
+                            Genre = BookGenre.Advanture
                         },
 
                         new Book()
@@ -433,6 +454,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1922, 06, 11),
                             Price = 4.45M,
                             PublisherId = 2,
+                            Genre = BookGenre.Advanture
                         },
 
                         new Book()
@@ -442,6 +464,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1920, 06, 11),
                             Price = 6.94M,
                             PublisherId = 2,
+                            Genre = BookGenre.Advanture
                         },
 
                         new Book()
@@ -452,6 +475,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1899, 02, 16),
                             Price = 5.13M,
                             PublisherId = 2,
+                            Genre = BookGenre.Advanture
                         },
 
                         new Book()
@@ -462,6 +486,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1599, 01, 01),
                             Price = 6.24M,
                             PublisherId = 2,
+                            Genre = BookGenre.Drama
                         },
 
                         new Book()
@@ -473,6 +498,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1601, 01, 01),
                             Price = 2.50M,
                             PublisherId = 3,
+                            Genre = BookGenre.Tragedy
                         },
 
                         new Book()
@@ -483,6 +509,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1597, 01, 01),
                             Price = 6.99M,
                             PublisherId = 3,
+                            Genre = BookGenre.Tragedy
                         },
 
                         new Book()
@@ -493,6 +520,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1603, 11, 03),
                             Price = 5.24M,
                             PublisherId = 3,
+                            Genre = BookGenre.Tragedy
                         },
 
                         new Book()
@@ -503,6 +531,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1606, 12, 26),
                             Price = 8.01M,
                             PublisherId = 3,
+                            Genre = BookGenre.Tragedy
                         },
 
                         new Book()
@@ -512,6 +541,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1593, 05, 05),
                             Price = 3.14M,
                             PublisherId = 3,
+                            Genre = BookGenre.Drama
                         },
 
                         new Book()
@@ -522,6 +552,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1980, 05, 05),
                             Price = 5.62M,
                             PublisherId = 3,
+                            Genre = BookGenre.Drama
                         },
 
                         new Book()
@@ -532,6 +563,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1996, 07, 23),
                             Price = 15.10M,
                             PublisherId = 3,
+                            Genre = BookGenre.Nonfiction
                         },
 
                         new Book()
@@ -542,6 +574,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1962, 07, 23),
                             Price = 10.00M,
                             PublisherId = 3,
+                            Genre = BookGenre.Fiction
                         },
 
                         new Book()
@@ -551,6 +584,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1967, 05, 05),
                             Price = 8.03M,
                             PublisherId = 3,
+                            Genre = BookGenre.Drama
                         },
 
                         new Book()
@@ -561,6 +595,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1961, 05, 05),
                             Price = 17.50M,
                             PublisherId = 4,
+                            Genre = BookGenre.Fiction
                         },
 
                         new Book()
@@ -571,6 +606,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1997, 06, 26),
                             Price = 9.50M,
                             PublisherId = 4,
+                            Genre = BookGenre.Fantasy
                         },
 
                         new Book()
@@ -581,6 +617,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(1998, 11, 05),
                             Price = 9.50M,
                             PublisherId = 4,
+                            Genre = BookGenre.Fantasy
                         },
 
                         new Book()
@@ -601,6 +638,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2000, 07, 08),
                             Price = 9.50M,
                             PublisherId = 1,
+                            Genre = BookGenre.Fantasy
                         },
 
                         new Book()
@@ -611,6 +649,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2003, 06, 21),
                             Price = 9.50M,
                             PublisherId = 2,
+                            Genre = BookGenre.Fantasy
                         },
 
                         new Book()
@@ -621,6 +660,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2005, 07, 16),
                             Price = 9.50M,
                             PublisherId = 3,
+                            Genre = BookGenre.Fantasy
                         },
 
 
@@ -631,6 +671,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2007, 07, 21),
                             Price = 9.50M,
                             PublisherId = 4,
+                            Genre = BookGenre.Fantasy
                         },
 
                         new Book()
@@ -640,6 +681,7 @@ namespace E_Books.Data
                             PublishDate = new DateTime(2016, 07, 31),
                             Price = 9.50M,
                             PublisherId = 1,
+                            Genre = BookGenre.Fantasy
                         }
                     });
                 }
