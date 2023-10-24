@@ -15,7 +15,7 @@ namespace E_Books.Controllers
         public async Task<IActionResult> Index()
         {
             var books = await _context.Books.ToListAsync();
-            return View();
+            return View(books);
         }
     }
 }
