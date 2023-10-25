@@ -28,14 +28,17 @@ namespace E_Books.Data.Services
             return result;
         }
 
-        public Author GetById(int id)
+        public async Task<Author> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Authors.FirstOrDefaultAsync(a => a.Id == id);
+            return result;
         }
 
-        public Author Update(int id, Author newAuthor)
+        public async Task<Author> UpdateAsync(int id, Author newAuthor)
         {
-            throw new NotImplementedException();
+            _context.Update(newAuthor);
+            await _context.SaveChangesAsync();
+            return newAuthor;
         }
     }
 }
