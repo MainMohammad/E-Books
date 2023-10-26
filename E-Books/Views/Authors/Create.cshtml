@@ -1,7 +1,7 @@
 ﻿@model Author
 
 @{
-    ViewData["title"] = "Create a new author";
+    ViewData["title"] = "Create a new Author";
 }
 
 <div class="row text">
@@ -19,14 +19,14 @@
                         <img id="ProfilePicturePreview" style="max-width: 40vh; max-height: 40vh" />
                     </div>
                     <div class="form-group">
+                        <label asp-for="ProfileURL" class="control-label"></label>
+                        <input asp-for="ProfileURL" class="form-control" />
+                        <span asp-validation-for="ProfileURL" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="Name" class="control-label"></label>
                         <input asp-for="Name" class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Age" class="control-label"></label>
-                        <input asp-for="Age" class="form-control" />
-                        <span asp-validation-for="Age" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Biography" class="control-label"></label>
@@ -34,9 +34,9 @@
                         <span asp-validation-for="Biography" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="ProfileURL" class="control-label"></label>
-                        <input asp-for="ProfileURL" class="form-control" />
-                        <span asp-validation-for="ProfileURL" class="text-danger"></span>
+                        <label asp-for="Age" class="control-label"></label>
+                        <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Create" class="btn btn-outline-success float-end" />
@@ -52,9 +52,9 @@
     <script>
         $(document).ready(function () {
             var output = document.getElementById("ProfilePicturePreview");
-            output.src = $("#ProfilePicture").val();
+            output.src = $("#ProfileURL").val();
         })
-        $("#ProfilePicture").on("change", function () {
+        $("#ProfileURL").on("change", function () {
             var output = document.getElementById("ProfilePicturePreview");
             output.src = $(this).val();
         })

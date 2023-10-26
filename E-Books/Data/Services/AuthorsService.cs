@@ -17,9 +17,14 @@ namespace E_Books.Data.Services
             await _context.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int Id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Authors.FirstOrDefaultAsync(a => a.Id == Id);
+            if (result != null)
+            {
+                _context.Authors.Remove(result);
+            }
+            await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Author>> GetAll()

@@ -21,15 +21,13 @@ namespace E_Books.Controllers
             return View(authors);
         }
 
-        // Authors/Get...
-        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Name,Age,Biography,ProfileUrl")] Author author)
+        public async Task<IActionResult> Create([Bind("Name,Age,Biography,ProfileURL")] Author author)
         {
             if(!ModelState.IsValid)
                 return View(author);
@@ -41,7 +39,7 @@ namespace E_Books.Controllers
         {
             var author = await _service.GetByIdAsync(Id);
             if (author == null)
-                return View("Empty");
+                return View("NotFound");
             return View(author);
         }
 
@@ -49,18 +47,37 @@ namespace E_Books.Controllers
         {
             var author_for_edit = await _service.GetByIdAsync(Id);
             if (author_for_edit == null)
-                return View("Empty");
+                return View("NotFound");
 
             return View(author_for_edit);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int Id, [Bind("Name,Age,Biography,ProfileUrl")]Author newAuthor)
+        public async Task<IActionResult> Edit(int Id, [Bind("Id,Name,Age,Biography,ProfileURL")]Author newAuthor)
         {
             if (!ModelState.IsValid)
                 return View(newAuthor);
             await _service.UpdateAsync(Id, newAuthor);
-            return RedirectToAction(nameof(Details));
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(int Id)
+        {
+            var author_to_delete = await _service.GetByIdAsync(Id);
+            if (author_to_delete == null)
+                return View("NotFound");
+            return View(author_to_delete);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int Id)
+        {
+            var author_to_delete = await _service.GetByIdAsync(Id);
+            if (author_to_delete == null)
+                return View("NotFound");
+
+            await _service.DeleteAsync(Id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
