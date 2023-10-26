@@ -17,7 +17,7 @@ namespace E_Books.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var authors = await _service.GetAll();
+            var authors = await _service.GetAllAsync();
             return View(authors);
         }
 

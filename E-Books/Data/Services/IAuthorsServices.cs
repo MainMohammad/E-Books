@@ -1,13 +1,9 @@
-﻿using E_Books.Models;
+﻿using E_Books.Data.Base;
+using E_Books.Models;
 
 namespace E_Books.Data.Services
 {
-    public interface IAuthorsServices
+    public interface IAuthorsServices : IEntityBaseRepository<Author>
     {
-        Task <IEnumerable<Author>> GetAll();
-        Task <Author> GetByIdAsync(int id);
-        Task AddAsync(Author author);
-        Task <Author> UpdateAsync(int id, Author newAuthor);
-        Task DeleteAsync(int Id);
     }
 }
