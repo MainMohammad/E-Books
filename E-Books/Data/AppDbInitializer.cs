@@ -10,7 +10,7 @@ namespace E_Books.Data
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
-                context.Database.EnsureCreatedAsync();
+                context.Database.EnsureCreated();
 
                 //Seeding Authors...
                 if(!context.Authors.Any())
@@ -25,7 +25,7 @@ namespace E_Books.Data
                             "with honours, in law, history and literature. Later, she earned a Master's Degree in conflict resolution, and worked for seven years as a " +
                             "mediator before becoming a full-time author. She is as of May 2018 a PhD candidate in Creative Writing. She lives in Melbourne, " +
                             "Australia with her husband and dog.",
-                            ProfileURL = "https://res.akamaized.net/domain/image/fetch/t_web/https://static.domain.com.au/twr/production/uploads/2017/08/25024719/TWR-30-Aug-Q-and-A-Amie-Kaufman-1950x1299-web.jpg"
+                            ProfileURL = "https://m.media-amazon.com/images/S/amzn-author-media-prod/srds4l75eqvtbf6cok87mhdsl3.jpg"
                         },
 
                         new Author()
@@ -34,7 +34,7 @@ namespace E_Books.Data
                             Age = DateTime.Now.Year - 1995,
                             Biography = "Meagan Spooner was raised in the United States and graduated from Thomas " +
                             "Jefferson High School for Science and Technology. She graduated from Hamilton College with a degree in playwriting.",
-                            ProfileURL = "https://www.davidhigham.co.uk/wp-content/uploads/1359475655Meagan_Spooner.jpg",
+                            ProfileURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfHfNpuTIORtcoCmZwpkLuGCvsrtlRpJkfTqmfsEZn1fhoOerSZzeoFXO2aOzzrakrwjo&usqp=CAU",
                         },
                         
                         new Author()
@@ -45,7 +45,7 @@ namespace E_Books.Data
                             "she chose to become a writer. She has two siblings. " +
                             "Charaipotra attended Rutgers University with a double major in journalism and American studies. " +
                             "She earned a master's degree in dramatic writing and South Asian diaspora studies from NYU in 2006.",
-                            ProfileURL = "https://mpd-biblio-authors.imgix.net/200067795.jpg"
+                            ProfileURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWbs-fa6D-kgf9LEPZd1uN9tb85-vbGqTR7hyb2WqLK7yg_J8hs6yBk2kyqxzLgW0ZSvo&usqp=CAU"
                         },
 
                         new Author()
@@ -55,7 +55,7 @@ namespace E_Books.Data
                             Biography = "Clayton was born in Washington, D.C. She went to Our Lady Of Good Counsel in Wheaton, Maryland. " +
                             "She received a Bachelor of Arts from Wake Forest University in 2005, " +
                             "a Master of Arts from Hollins University in 2008, and Master of Fine Arts in creative writing from The New School in 2012.",
-                            ProfileURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpEuDCDU3x_EjzIFsdSjPT_fT5n8ODm9dO9A&usqp=CAU"
+                            ProfileURL = "https://m.media-amazon.com/images/S/amzn-author-media-prod/59ac51h1jh6i6b120j2avrphvj._SX576_CR0%2C0%2C576%2C576_.jpg"
                         },
 
                         new Author()
@@ -66,7 +66,7 @@ namespace E_Books.Data
                             "where she still lives with her husband Brian, and two sons, Owen and Henry." +
                             "Albertalli attended Wesleyan University and majored in psychology, " +
                             "before moving to Washington, D.C., and earning her Doctor of Psychology degree from George Washington University.",
-                            ProfileURL = "https://www.loc.gov/static/managed-content/uploads/sites/7/2020/08/Albertalli-Becky.jpg"
+                            ProfileURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtbsNdOsM16-oxashAt1SeTcmfUrYe2IFXVo9zCzrl3Jexi_T_PUynUp1WLOF3NN8TvnE&usqp=CAU"
                         },
 
                         new Author()
@@ -76,7 +76,7 @@ namespace E_Books.Data
                             Biography = "Adam Silvera was born and raised in the South Bronx in New York City. His mother, Persi Rosa, is Puerto Rican and a social worker. " +
                             "Silvera started writing when he was around 10 or 11, initially working on fan fiction." +
                             "\r\n\r\nSilvera has worked as a barista, bookseller, and reviewer for Shelf Awareness before becoming a published writer.",
-                            ProfileURL = "https://images.squarespace-cdn.com/content/v1/52bd29c9e4b013dbd6fc9a1c/1565225132084-13KP2Q4AQ5QVK3MKFAFA/AdamSilveraFace+2019.jpg"
+                            ProfileURL = "https://m.media-amazon.com/images/S/amzn-author-media-prod/uk4oebcg6s1iji0sda6i96him7._SX1724_CR0%2C0%2C1724%2C1724_.jpg"
                         },
 
                         new Author()
@@ -86,7 +86,7 @@ namespace E_Books.Data
                             Biography = "Ellen Oh (née Ha) is a Korean-American author, and founding member and CEO of the non-profit We Need Diverse Books. " +
                             "She is the award winning author of young adult and middle grade novels including the Prophecy trilogy, also known as the Dragon King Chronicles, " +
                             "a series of fantasy, young adult novels based on Korean folklore.",
-                            ProfileURL = "https://www.ellenoh.com/wp-content/uploads/2022/08/EllenOh-author2.jpg"
+                            ProfileURL = "https://images-na.ssl-images-amazon.com/images/S/amzn-author-media-prod/l2rhj0pbt84dbtueeah5d0j0o7.jpg"
                         },
 
                         new Author()
@@ -96,7 +96,7 @@ namespace E_Books.Data
                             Biography = "Elsie Chapman grew up in Prince George, Canada, and has a degree in English literature from the University of British Columbia. She is the author of the YA novels Dualed, " +
                             "Divided, and Along the Indigo, the middle grade novel All the Ways Home, " +
                             "and the coeditor of A Thousand Beginnings and Endings and Hungry Hearts. She currently lives in Tokyo, Japan, with her family",
-                            ProfileURL = "https://wikizilla.org/w/images/a/ae/E_Chapman.png"
+                            ProfileURL = "https://images-na.ssl-images-amazon.com/images/S/amzn-author-media-prod/vnvtasu5s06cg46eh59tqgpc5j.jpg"
                         },
 
                         new Author()
@@ -107,7 +107,7 @@ namespace E_Books.Data
                             "Her middle grade novel Amal Unbound (Penguin) received multiple starred reviews and was a Global Read Aloud for 2018. " +
                             "Her picture book, Bilal Cooks Daal (Simon and Schuster) received an APALA honor. Aisha is also a founding member of the nonprofit We Need Diverse Books™. " +
                             "She lives in Atlanta, Georgia with her family",
-                            ProfileURL = "https://aishasaeed.com/wp-content/uploads/sb-instagram-feed-images/273587277_651850442937274_2375084039378534560_nfull.jpg"
+                            ProfileURL = "https://m.media-amazon.com/images/S/amzn-author-media-prod/3i5q2160vsikdh9h77ks49rr93._SX500_CR0%2C0%2C500%2C500_.jpg"
                         },
 
                         new Author()
@@ -139,7 +139,7 @@ namespace E_Books.Data
                             Name = "Kathrine Webber",
                             Age = DateTime.Now.Year - 1987,
                             Biography = "Katherine Webber is an author of young-adult books. Her novel Wing Jones will be published in the UK (Walker Books) and in the US.",
-                            ProfileURL = "https://files.datathistle.com/images/2022/06/10/e55205cd7960ce1eb303f99156d4fcd6846750f3-original-LST496403.jpg"
+                            ProfileURL = "https://m.media-amazon.com/images/S/amzn-author-media-prod/vv2mjqkgms5a1q9p47kh852afa._SX600_CR0%2C0%2C600%2C600_.jpg"
                         },
 
                         new Author()
@@ -149,7 +149,7 @@ namespace E_Books.Data
                             Biography = "John Griffith Chaney, better known as Jack London, was an American novelist, journalist and activist. " +
                             "A pioneer of commercial fiction and American magazines, " +
                             "he was one of the first American authors to become an international celebrity and earn a large fortune from writing.",
-                            ProfileURL = "https://m.media-amazon.com/images/M/MV5BNTViNTcyYzQtOGFjNS00NjgyLTk5OWUtZDQxNTFjZmUxNTYzL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTc4MzI2NQ@@._V1_.jpg"
+                            ProfileURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpqT9FMT9vIikBMw7AAKTteOnkMnTlbzPDJw&usqp=CAU"
                         },
 
                         new Author()
@@ -159,7 +159,7 @@ namespace E_Books.Data
                             Biography = "William Shakespeare was an English playwright, poet and actor. He is widely regarded as the greatest writer " +
                             "in the English language and the world's pre-eminent dramatist. " +
                             "He is often called England's national poet and the \"Bard of Avon\"",
-                            ProfileURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/William_Shakespeare_by_John_Taylor.jpg/640px-William_Shakespeare_by_John_Taylor.jpg"
+                            ProfileURL = "https://www.williamshakespeare.net/images/shakespeare.jpg"
                         },
 
                         new Author()
@@ -169,7 +169,7 @@ namespace E_Books.Data
                             Biography = "Gabriel José de la Concordia García Márquez was a Colombian novelist, " +
                             "short-story writer, screenwriter, " +
                             "and journalist, known affectionately as Gabo or Gabito throughout Latin America.",
-                            ProfileURL = "https://upload.wikimedia.org/wikipedia/commons/0/0f/Gabriel_Garcia_Marquez.jpg"
+                            ProfileURL = "https://m.media-amazon.com/images/I/71pLzyXKsOL._SX607_CR0%2C0%2C607%2C607_.jpg"
                         },
 
                         new Author()
@@ -187,7 +187,7 @@ namespace E_Books.Data
                             Age = DateTime.Now.Year - 1948,
                             Biography = "George Raymond Richard Martin, also known as GRRM, is an " +
                             "American novelist, screenwriter, television producer and short story writer.",
-                            ProfileURL = "https://cdn.britannica.com/05/223205-050-8931FF28/American-writer-George-RR-Martin-2011.jpg"
+                            ProfileURL = "https://m.media-amazon.com/images/S/amzn-author-media-prod/1u8p8qq9fr3eq2ocgma6j56s0g._SY208_CR53%2C0%2C208%2C208_.jpg"
                         },
 
                         new Author()
@@ -196,7 +196,7 @@ namespace E_Books.Data
                             Age = 1930 - 1859,
                             Biography = "Sir Arthur Ignatius Conan Doyle KStJ, DL was a British writer and physician. " +
                             "He created the character Sherlock Holmes in 1887 for A Study in Scarlet.",
-                            ProfileURL = "https://m.media-amazon.com/images/M/MV5BMzI0NjQ1ODg1NF5BMl5BanBnXkFtZTgwOTc2OTI1MDE@._V1_.jpg"
+                            ProfileURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQbH6NK9Mg1ZxDMZioqflhALYUABRizchPyU687JbMysts8XfJHjMJ09ruf3GhKzwYtTQ&usqp=CAU"
                         }
                     });
                     context.SaveChanges();
