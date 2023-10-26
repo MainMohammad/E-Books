@@ -1,0 +1,33 @@
+﻿@model BookStore
+
+@{
+    ViewData["Title"] = "Bookstore card";
+}
+
+<div class="card" style="max-width: 950px;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-12" style="display: inline-flex">
+                <img class="col-md-3" src="@Model.LogoURL" alt="@Model.Name">
+                <div class="col-md-7 offset-md-1" style="margin-top: 30px">
+                    <h5><b>Who is @Model.Name?</b></h5>
+                    <p class="card-text" style="justify-content: center; margin-top: 40px">
+                        @Model.Address
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card-body" style="font-size: 15px">
+                    <p class="card-text"><b>Name: </b>@Model.Name</p>
+                    <p class="card-text"><b>Age: </b>@Model.Telephone</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer col-md-8 offset-md-2>
+        <a asp-action="Index" class="btn btn-outline-secondary float-start">Return</a>
+        <form asp-action="Delete">
+            <input type="submit" value="Confirm" class="btn btn-danger float-end" />
+        </form>
+    </footer>
+</div>
