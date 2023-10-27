@@ -52,7 +52,7 @@ namespace E_Books.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int Id, [Bind("Name,Address,Telephone,LogoURL")] BookStore bookStore)
+        public async Task<IActionResult> Edit(int Id, [Bind("Id,Name,Address,Telephone,LogoURL")] BookStore bookStore)
         {
             if (!ModelState.IsValid)
                 return View(bookStore);

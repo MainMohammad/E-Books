@@ -1,7 +1,7 @@
-﻿@model BookStore
+﻿@model Publisher
 
 @{
-    ViewData["Title"] = "Bookstore card";
+    ViewData["Title"] = "Publisher card";
 }
 
 <div class="card" style="max-width: 950px;">
@@ -12,14 +12,15 @@
                 <div class="col-md-7 offset-md-1" style="margin-top: 30px">
                     <h5><b>Who is @Model.Name?</b></h5>
                     <p class="card-text" style="justify-content: center; margin-top: 40px">
-                        @Model.Address
+                        @Model.Description
                     </p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card-body" style="font-size: 15px">
                     <p class="card-text"><b>Name: </b>@Model.Name</p>
-                    <p class="card-text"><b>Telephone: </b>@Model.Telephone</p>
+                    <p class="card-text"><b>Email: </b>@Model.Email</p>
+                    <p class="card-text"><b>Address: </b>@Model.Address</p>
                 </div>
             </div>
         </div>
