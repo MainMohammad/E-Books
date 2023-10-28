@@ -1,6 +1,8 @@
 ﻿using E_Books.Data;
 using E_Books.Data.Services;
+using E_Books.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Books.Controllers
@@ -25,6 +27,30 @@ namespace E_Books.Controllers
             if (book == null)
                 return View("NotFound");
             return View(book);
+        }
+
+        public async Task<IActionResult> Create()
+        {
+            var bookDropDownData = await _service.GetNewBookDropdownVals();
+            ViewBag.PublisherId = new SelectList(bookDropDownData.Publishers, "Id", "Name");
+            ViewBag.AuthorIds = new SelectList(bookDropDownData.Authors, "Id", "Name");
+            ViewBag.BookStoreIds = new SelectList(bookDropDownData.BookStores, "Id", "Name");
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(NewBookVM book)
+        {
+            if (!ModelState.IsValid)
+            {
+                var bookDropDownData = await _service.GetNewBookDropdownVals();
+                ViewBag.PublisherId = new SelectList(bookDropDownData.Publishers, "Id", "Name");
+                ViewBag.AuthorIds = new SelectList(bookDropDownData.Authors, "Id", "Name");
+                ViewBag.BookStoreIds = new SelectList(bookDropDownData.BookStores, "Id", "Name");
+                return View(book);
+            }
+            await _service.AddNewBook(book);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
