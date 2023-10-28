@@ -13,6 +13,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
 builder.Services.AddScoped<IAuthorsServices, AuthorsService>();
 builder.Services.AddScoped<IBookStoresServices, BookStoresService>();
 builder.Services.AddScoped<IPublishersServices, PublishersService>();
+builder.Services.AddScoped<IBooksServices, BooksService>();
 
 var app = builder.Build();
 

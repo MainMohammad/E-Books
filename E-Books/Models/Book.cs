@@ -1,10 +1,11 @@
-﻿using E_Books.Data.Enums;
+﻿using E_Books.Data.Base;
+using E_Books.Data.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace E_Books.Models
 {
-    public class Book
+    public class Book : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -32,8 +33,8 @@ namespace E_Books.Models
 
         //Relations
         // Many to manies
-        public List<Author_Book>? Authors_Books { get; set; }
-        public List<BookStore_Book>? BookStores_Books { get; set; }
+        public List<Author_Book> Authors_Books { get; set; }
+        public List<BookStore_Book> BookStores_Books { get; set; }
 
         //One to many of publisher and book from this side
         public int PublisherId { get; set; }

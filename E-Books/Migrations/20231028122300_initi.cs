@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace E_Books.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class initi : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -89,8 +89,8 @@ namespace E_Books.Migrations
                 name: "Authors_Books",
                 columns: table => new
                 {
-                    AuthorId = table.Column<int>(type: "int", nullable: false),
-                    BookId = table.Column<int>(type: "int", nullable: false)
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    AuthorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -113,8 +113,8 @@ namespace E_Books.Migrations
                 name: "BookStores_Books",
                 columns: table => new
                 {
-                    BookId = table.Column<int>(type: "int", nullable: false),
-                    BookStoreId = table.Column<int>(type: "int", nullable: false)
+                    BookStoreId = table.Column<int>(type: "int", nullable: false),
+                    BookId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
