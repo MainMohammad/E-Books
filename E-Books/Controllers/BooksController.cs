@@ -21,6 +21,18 @@ namespace E_Books.Controllers
             return View(books);
         }
 
+        public async Task<IActionResult> Search(string searchString)
+        {
+            var books = await _service.GetAllAsync();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var filteredBooks = books.Where(b => b.Title.Contains(searchString, StringComparison.OrdinalIgnoreCase) || b.Summary.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+                return View("Index", filteredBooks);
+            }
+            return View("Index", books);
+        }
+
         public async Task<IActionResult> Details(int Id)
         {
             var book = await _service.GetBookById(Id);

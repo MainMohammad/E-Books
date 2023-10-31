@@ -39,5 +39,10 @@ namespace E_Books.Data
         public DbSet<BookStore> BookStores { get; set; }
         public DbSet<Author_Book> Authors_Books { get; set; }
         public DbSet<BookStore_Book> BookStores_Books { get; set; }
+
+        //Order related stuff
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }

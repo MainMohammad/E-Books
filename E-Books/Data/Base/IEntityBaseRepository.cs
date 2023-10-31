@@ -11,6 +11,5 @@ namespace E_Books.Data.Base
         Task AddAsync(T entity);
         Task UpdateAsync(int id, T entity);
         Task DeleteAsync(int Id);
-
     }
 }

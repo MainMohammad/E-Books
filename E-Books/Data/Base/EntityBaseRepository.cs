@@ -41,19 +41,13 @@ namespace E_Books.Data.Base
             return result;
         }
 
-
-        //public async Task<IEnumerable<T>> GetAllAsync(params Expression<Func<T, object>>[] includeProperties)
-        //{
-        //    IQueryable<T> query = _context.Set<T>();
-        //    query = includeProperties.Aggregate(query, (current, includeProperties) => current.Include(includeProperties));
-        //    return await query.ToListAsync();
-        //}
-
         public async Task UpdateAsync(int id, T entity)
         {
             EntityEntry entityEntry = _context.Entry<T>(entity);
             entityEntry.State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
+
+        
     }
 }

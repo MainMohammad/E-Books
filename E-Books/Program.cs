@@ -1,5 +1,6 @@
 using E_Books.Data;
 using E_Books.Data.Services;
+using E_Books.Data.Cart;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,9 @@ builder.Services.AddScoped<IAuthorsServices, AuthorsService>();
 builder.Services.AddScoped<IBookStoresServices, BookStoresService>();
 builder.Services.AddScoped<IPublishersServices, PublishersService>();
 builder.Services.AddScoped<IBooksServices, BooksService>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -29,6 +33,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
 
