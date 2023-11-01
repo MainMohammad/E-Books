@@ -1,5 +1,7 @@
 ﻿using E_Books.Models;
 using E_Books.Data.Enums;
+using Microsoft.AspNetCore.Identity;
+using E_Books.Data.Static;
 
 namespace E_Books.Data
 {
@@ -1272,6 +1274,53 @@ namespace E_Books.Data
                         },
                     });
                     context.SaveChanges();
+                }
+            }
+        }
+
+        public static async Task SeedUserAndRolesAsync(IApplicationBuilder applicationBuilder)
+        {
+            using(var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
+            {
+                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                if(!await roleManager.RoleExistsAsync(UserRoles.Admin))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+
+                if (!await roleManager.RoleExistsAsync(UserRoles.User))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+
+
+
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+
+                var adminUser = await userManager.FindByEmailAsync("admin@ebooks.com");
+
+                if(adminUser == null)
+                {
+                    var newAdminUser = new AppUser()
+                    {
+                        FullName = "Admin User",
+                        UserName = "Admin",
+                        Email = "admin@ebooks.com",
+                        EmailConfirmed = true,
+                    };
+                    await userManager.CreateAsync(newAdminUser, "abcd1234");
+                    await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
+                }
+
+                var simpleUser = await userManager.FindByEmailAsync("simpleUser@ebooks.com");
+                if (simpleUser == null)
+                {
+                    var newSimpleUser = new AppUser()
+                    {
+                        FullName = "Simple User",
+                        UserName = "Simple-User",
+                        Email = "simpleUser@ebooks.com",
+                        EmailConfirmed = true,
+                    };
+                    await userManager.CreateAsync(newSimpleUser, "abcd1234");
+                    await userManager.AddToRoleAsync(newSimpleUser, UserRoles.User);
                 }
             }
         }
