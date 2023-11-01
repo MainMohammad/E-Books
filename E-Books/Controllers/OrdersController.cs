@@ -10,11 +10,13 @@ namespace E_Books.Controllers
 
         private readonly IBooksServices _bookService;
         private readonly ShoppingCart _shoppingCart;
+        private readonly IOrdersService _ordersService;
 
-        public OrdersController(IBooksServices bookService, ShoppingCart shoppingCart)
+        public OrdersController(IBooksServices bookService, ShoppingCart shoppingCart, IOrdersService ordersService)
         {
             _bookService = bookService;
             _shoppingCart = shoppingCart;
+            _ordersService = ordersService;
         }
 
         public IActionResult ShoppingCart()
@@ -51,6 +53,18 @@ namespace E_Books.Controllers
                 _shoppingCart.RemoveItemFromCart(item);
             }
             return RedirectToAction(nameof(ShoppingCart));
+        }
+
+        public async Task<IActionResult> CompleteOrder()
+        {
+            var items = _shoppingCart.GetShoppingCartItems();
+            string userId = "";
+            string userEmailAddress = "";
+
+            await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
+            await _shoppingCart.ClearShoppingCartAsync();
+
+            return View("OrderCompleted");
         }
     }
 }
