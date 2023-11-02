@@ -27,11 +27,11 @@ namespace E_Books.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginVM loginVM)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return View(loginVM);
 
             var user = await _userManager.FindByEmailAsync(loginVM.EmailAddress);
-            if(user != null)
+            if (user != null)
             {
                 var passwordCheck = await _userManager.CheckPasswordAsync(user, loginVM.Password);
                 if (passwordCheck)
@@ -58,13 +58,13 @@ namespace E_Books.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Signup(SignupVM signupVM) 
+        public async Task<IActionResult> Signup(SignupVM signupVM)
         {
             if (!ModelState.IsValid)
                 return View(signupVM);
 
             var existingUser = await _userManager.FindByEmailAsync(signupVM.EmailAddress);
-            if(existingUser != null)
+            if (existingUser != null)
             {
                 TempData["Error"] = "Email already in use!";
                 return View(signupVM);
@@ -79,12 +79,17 @@ namespace E_Books.Controllers
 
             var newResponse = await _userManager.CreateAsync(newUser, signupVM.Password);
 
-            if(newResponse.Succeeded)
+            if (newResponse.Succeeded)
                 await _userManager.AddToRoleAsync(newUser, UserRoles.User);
 
             return View("RegisterCompleted");
         }
 
-
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Books");
+        }
     }
 }

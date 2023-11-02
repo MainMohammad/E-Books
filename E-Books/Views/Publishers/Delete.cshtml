@@ -4,31 +4,47 @@
     ViewData["Title"] = "Publisher card";
 }
 
-<div class="card" style="max-width: 950px;">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-12" style="display: inline-flex">
-                <img class="col-md-3" src="@Model.LogoURL" alt="@Model.Name">
-                <div class="col-md-7 offset-md-1" style="margin-top: 30px">
-                    <h5><b>Who is @Model.Name?</b></h5>
-                    <p class="card-text" style="justify-content: center; margin-top: 40px">
-                        @Model.Description
-                    </p>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div class="card" style="max-width: 950px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12" style="display: inline-flex">
+                    <img class="col-md-3" src="@Model.LogoURL" alt="@Model.Name">
+                    <div class="col-md-7 offset-md-1" style="margin-top: 30px">
+                        <h5><b>Who is @Model.Name?</b></h5>
+                        <p class="card-text" style="justify-content: center; margin-top: 40px">
+                            @Model.Description
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card-body" style="font-size: 15px">
-                    <p class="card-text"><b>Name: </b>@Model.Name</p>
-                    <p class="card-text"><b>Email: </b>@Model.Email</p>
-                    <p class="card-text"><b>Address: </b>@Model.Address</p>
+                <div class="col-md-3">
+                    <div class="card-body" style="font-size: 15px">
+                        <p class="card-text"><b>Name: </b>@Model.Name</p>
+                        <p class="card-text"><b>Email: </b>@Model.Email</p>
+                        <p class="card-text"><b>Address: </b>@Model.Address</p>
+                    </div>
                 </div>
             </div>
         </div>
+        <footer col-md-8 offset-md-2>
+            <a asp-action="Index" class="btn btn-outline-secondary float-start">Return</a>
+            <form asp-action="Delete">
+                <input type="submit" value="Confirm" class="btn btn-danger float-end" />
+            </form>
+        </footer>
     </div>
-    <footer col-md-8 offset-md-2>
-        <a asp-action="Index" class="btn btn-outline-secondary float-start">Return</a>
-        <form asp-action="Delete">
-            <input type="submit" value="Confirm" class="btn btn-danger float-end" />
-        </form>
-    </footer>
-</div>
+}
+else
+{
+    <div>
+
+        <div class="row text-center">
+            <div col-md-6 offset-3">
+                <h1 class="text-info">404 Not Found!</h1>
+                <br />
+                <a class="btn btn-outline-success float-center" asp-controller="Books" asp-action="Index">Home Page</a>
+            </div>
+        </div>
+    </div>
+}

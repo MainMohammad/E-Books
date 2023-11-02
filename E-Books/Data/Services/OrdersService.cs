@@ -13,7 +13,13 @@ namespace E_Books.Data.Services
         }
         public async Task<List<Order>> GetOrdersByUserIdAndRoleAsync(string userId, string userRole)
         {
-            var orders = await _ctx.Orders.Include(n => n.Items).ThenInclude(n => n.Book).ToListAsync();
+            var orders = await _ctx.Orders.Include(n => n.Items).ThenInclude(n => n.Book).Include(n => n.User).ToListAsync();
+
+            if(userRole != "Admin")
+            {
+                orders = orders.Where(n => n.UserId == userId).ToList();
+            }
+
             return orders;
         }
 

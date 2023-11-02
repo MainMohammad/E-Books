@@ -8,7 +8,10 @@
     @foreach (var item in Model)
     {
         <div class="col-md-2 col-xs-3 border-primary mb-3">
-            <a class="btn text-primary" asp-action="Edit" asp-route-id="@item.Id" style="font-size: 15px; margin-bottom: 5px"><i class="bi bi-pencil-square"></i></a>
+            @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <a class="btn text-primary" asp-action="Edit" asp-route-id="@item.Id" style="font-size: 15px; margin-bottom: 5px"><i class="bi bi-pencil-square"></i></a>
+            }
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-12">

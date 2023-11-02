@@ -4,96 +4,111 @@
     ViewData["Title"] = "create a new Book";
 }
 
-<div class="row">
-    <div class="col-md-8 offset-2">
-        <p>
-            <h4 class="text-center">Create a new book</h4>
-        </p>
-        <div class="row">
-            <div class="col-md-8 offset-2">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger "></div>
+@if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <p>
+                <h4 class="text-center">Create a new book</h4>
+            </p>
+            <div class="row">
+                <div class="col-md-8 offset-2">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger "></div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label asp-for="Title" class="control-label"></label>
-                                <input asp-for="Title" class="form-control" />
-                                <span asp-validation-for="Title" class="text-danger"></span>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Title" class="control-label"></label>
+                                    <input asp-for="Title" class="form-control" />
+                                    <span asp-validation-for="Title" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="PublishDate" class="control-label"></label>
+                                    <input asp-for="PublishDate" class="form-control" />
+                                    <span asp-validation-for="PublishDate" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Price" class="control-label"></label>
+                                    <input asp-for="Price" class="form-control" />
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="BookCover" class="control-label"></label>
+                                    <input asp-for="BookCover" class="form-control" />
+                                    <span asp-validation-for="BookCover" class="text-danger"></span>
+                                </div>
                             </div>
-
-                            <div class="form-group">
-                                <label asp-for="PublishDate" class="control-label"></label>
-                                <input asp-for="PublishDate" class="form-control" />
-                                <span asp-validation-for="PublishDate" class="text-danger"></span>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Genre" class="control-label"></label>
+                                    <select asp-for="Genre" class="form-control" asp-items="Html.GetEnumSelectList<E_Books.Data.Enums.BookGenre>()"></select>
+                                    <span asp-validation-for="Genre" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PublisherId" class="control-label"></label>
+                                    <select asp-for="PublisherId" class="form-control" asp-items="ViewBag.PublisherId"></select>
+                                    <span asp-validation-for="PublisherId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="AuthorIds" class="control-label"></label>
+                                    <select asp-for="AuthorIds" class="form-control" multiple asp-items="ViewBag.AuthorIds"></select>
+                                    <span asp-validation-for="AuthorIds" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="BookStoreIds" class="control-label"></label>
+                                    <select asp-for="BookStoreIds" class="form-control" multiple asp-items="ViewBag.BookStoreIds"></select>
+                                    <span asp-validation-for="BookStoreIds" class="text-danger"></span>
+                                </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="Summary" class="control-label"></label>
+                                    <textarea asp-for="Summary" class="form-control" multiple></textarea>
+                                    <span asp-validation-for="Summary" class="text-danger"></span>
+                                </div>
 
-                            <div class="form-group">
-                                <label asp-for="Price" class="control-label"></label>
-                                <input asp-for="Price" class="form-control" />
-                                <span asp-validation-for="Price" class="text-danger"></span>
-                            </div>
 
-                            <div class="form-group">
-                                <label asp-for="BookCover" class="control-label"></label>
-                                <input asp-for="BookCover" class="form-control" />
-                                <span asp-validation-for="BookCover" class="text-danger"></span>
+
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label asp-for="Genre" class="control-label"></label>
-                                <select asp-for="Genre" class="form-control" asp-items="Html.GetEnumSelectList<E_Books.Data.Enums.BookGenre>()"></select>
-                                <span asp-validation-for="Genre" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="PublisherId" class="control-label"></label>
-                                <select asp-for="PublisherId" class="form-control" asp-items="ViewBag.PublisherId"></select>
-                                <span asp-validation-for="PublisherId" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="AuthorIds" class="control-label"></label>
-                                <select asp-for="AuthorIds" class="form-control" multiple asp-items="ViewBag.AuthorIds"></select>
-                                <span asp-validation-for="AuthorIds" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="BookStoreIds" class="control-label"></label>
-                                <select asp-for="BookStoreIds" class="form-control" multiple asp-items="ViewBag.BookStoreIds"></select>
-                                <span asp-validation-for="BookStoreIds" class="text-danger"></span>
-                            </div>
+                        <div class="col-md-4 offset-4 text-center">
+                            <img width="100%" id="ImageUrlPreview" />
                         </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label asp-for="Summary" class="control-label"></label>
-                                <textarea asp-for="Summary" class="form-control" multiple></textarea>
-                                <span asp-validation-for="Summary" class="text-danger"></span>
-                            </div>
 
-
-
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-outline-success float-end" />
+                            <a class="btn btn-outline-secondary float-first" asp-action="Index">Show all</a>
                         </div>
-                    </div>
-                    <div class="col-md-4 offset-4 text-center">
-                        <img width="100%" id="ImageUrlPreview" />
-                    </div>
 
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-outline-success float-end" />
-                        <a class="btn btn-outline-secondary float-first" asp-action="Index">Show all</a>
-                    </div>
+                    </form>
 
-                </form>
-
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-@section Scripts{
+    @section Scripts{
     <script>
-        $("#BookCover").on("change", function() {
+        $("#BookCover").on("change", function () {
             var output = document.getElementById("ImageUrlPreview");
             output.src = $(this).val();
         })
     </script>
+    }
+}
+else{
+    <div>
+
+        <div class="row text-center">
+            <div col-md-6 offset-3">
+                <h1 class="text-info">404 Not Found!</h1>
+                <br />
+                <a class="btn btn-outline-success float-center" asp-controller="Books" asp-action="Index">Home Page</a>
+            </div>
+        </div>
+    </div>
 }
