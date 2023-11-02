@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace E_Books.Models
 {
-    public class AppUser: IdentityUser
+    public class AppUser:IdentityUser
     {
-        [Required(ErrorMessage = "Name if Required!")]
+        [Display(Name = "Full name")]
         public string FullName { get; set; }
     }
 }

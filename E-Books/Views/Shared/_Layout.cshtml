@@ -17,7 +17,7 @@
                 <input name="searchString" style="height: 48px;" type="text" class="form-control" placeholder="Search for a Book" />
                 <button class="btn btn-outline-dark my-2 my-sm-0" style="height: 48px; width: 48px; margin: 5px" type="submit"><i class="bi bi-search"></i></button>
             </form>
-            <a class="btn btn-outline-dark" style="height: 48px; width: 50px;"><i class="bi bi-person"></i><figcaption style="font-size: 10px">Login</figcaption></a>
+            <a asp-controller="Accounts" asp-action="Login" class="btn btn-outline-dark" style="height: 48px; width: 50px;"><i class="bi bi-person"></i><figcaption style="font-size: 10px">Login</figcaption></a>
             <ul class="navbar-nav">
                 @await Component.InvokeAsync("ShoppingCartSummary")
             </ul>

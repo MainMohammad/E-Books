@@ -1,7 +1,8 @@
 ﻿using E_Books.Models;
 using E_Books.Data.Enums;
-using Microsoft.AspNetCore.Identity;
 using E_Books.Data.Static;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace E_Books.Data
 {
@@ -15,7 +16,7 @@ namespace E_Books.Data
                 context.Database.EnsureCreated();
 
                 //Seeding Authors...
-                if(!context.Authors.Any())
+                if (!context.Authors.Any())
                 {
                     context.Authors.AddRange(new List<Author>()
                     {
@@ -38,7 +39,7 @@ namespace E_Books.Data
                             "Jefferson High School for Science and Technology. She graduated from Hamilton College with a degree in playwriting.",
                             ProfileURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfHfNpuTIORtcoCmZwpkLuGCvsrtlRpJkfTqmfsEZn1fhoOerSZzeoFXO2aOzzrakrwjo&usqp=CAU",
                         },
-                        
+
                         new Author()
                         {
                             Name = "Sona Charaipotra",
@@ -205,7 +206,7 @@ namespace E_Books.Data
                 }
 
                 //Seeding Publishers...
-                if(!context.Publishers.Any())
+                if (!context.Publishers.Any())
                 {
                     context.Publishers.AddRange(new List<Publisher>()
                     {
@@ -256,7 +257,7 @@ namespace E_Books.Data
                 }
 
                 //Seeding Book stores...
-                if(!context.BookStores.Any())
+                if (!context.BookStores.Any())
                 {
                     context.BookStores.AddRange(new List<BookStore>()
                     {
@@ -288,7 +289,7 @@ namespace E_Books.Data
                 }
 
                 //Seeding books...
-                if(!context.Books.Any())
+                if (!context.Books.Any())
                 {
                     context.Books.AddRange(new List<Book>()
                     {
@@ -1278,25 +1279,26 @@ namespace E_Books.Data
             }
         }
 
+
         public static async Task SeedUserAndRolesAsync(IApplicationBuilder applicationBuilder)
         {
-            using(var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
+            using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
+
+                //Roles Section
                 var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-                if(!await roleManager.RoleExistsAsync(UserRoles.Admin))
+                if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
                     await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
 
                 if (!await roleManager.RoleExistsAsync(UserRoles.User))
                     await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
 
-
-
+                //Adding users
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
 
                 var adminUser = await userManager.FindByEmailAsync("admin@ebooks.com");
-
-                if(adminUser == null)
+                if (adminUser == null)
                 {
                     var newAdminUser = new AppUser()
                     {
@@ -1305,8 +1307,15 @@ namespace E_Books.Data
                         Email = "admin@ebooks.com",
                         EmailConfirmed = true,
                     };
-                    await userManager.CreateAsync(newAdminUser, "abcd1234");
-                    await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
+                    var result = await userManager.CreateAsync(newAdminUser, "1234@Abcd");
+                    if (result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
+                    }
+                    else
+                    {
+                        throw new Exception(string.Join('\n',result.Errors.Select(e => e.Description).ToList()));
+                    }
                 }
 
                 var simpleUser = await userManager.FindByEmailAsync("simpleUser@ebooks.com");
@@ -1319,7 +1328,7 @@ namespace E_Books.Data
                         Email = "simpleUser@ebooks.com",
                         EmailConfirmed = true,
                     };
-                    await userManager.CreateAsync(newSimpleUser, "abcd1234");
+                    await userManager.CreateAsync(newSimpleUser, "1234@Abcd");
                     await userManager.AddToRoleAsync(newSimpleUser, UserRoles.User);
                 }
             }

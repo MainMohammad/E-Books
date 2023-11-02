@@ -1,4 +1,6 @@
 ﻿using E_Books.Data;
+using E_Books.Data.Static;
+using E_Books.Data.ViewModels;
 using E_Books.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,9 +19,72 @@ namespace E_Books.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Login()
         {
-            return View();
+            return View(new LoginVM());
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginVM loginVM)
+        {
+            if(!ModelState.IsValid)
+                return View(loginVM);
+
+            var user = await _userManager.FindByEmailAsync(loginVM.EmailAddress);
+            if(user != null)
+            {
+                var passwordCheck = await _userManager.CheckPasswordAsync(user, loginVM.Password);
+                if (passwordCheck)
+                {
+                    var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Books");
+                    }
+                }
+                else
+                {
+                    TempData["Error"] = "Wrong Credintials...";
+                    return View(loginVM);
+                }
+            }
+            TempData["Error"] = "Wrong credintals try again...!";
+            return View(loginVM);
+        }
+
+        public IActionResult Signup()
+        {
+            return View(new SignupVM());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Signup(SignupVM signupVM) 
+        {
+            if (!ModelState.IsValid)
+                return View(signupVM);
+
+            var existingUser = await _userManager.FindByEmailAsync(signupVM.EmailAddress);
+            if(existingUser != null)
+            {
+                TempData["Error"] = "Email already in use!";
+                return View(signupVM);
+            }
+
+            var newUser = new AppUser()
+            {
+                FullName = signupVM.FullName,
+                Email = signupVM.EmailAddress,
+                UserName = signupVM.EmailAddress
+            };
+
+            var newResponse = await _userManager.CreateAsync(newUser, signupVM.Password);
+
+            if(newResponse.Succeeded)
+                await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+
+            return View("RegisterCompleted");
+        }
+
+
     }
 }
