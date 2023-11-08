@@ -10,5 +10,6 @@ namespace E_Books.Data.Services
         Task<Book> GetBookById(int id);
         Task<NewBookDropdownsVM> GetNewBookDropdownVals();
         Task AddNewBook(NewBookVM data);
+        Task<IEnumerable<Book>> GetBooksByPublisherId(int Id);
     }
 }

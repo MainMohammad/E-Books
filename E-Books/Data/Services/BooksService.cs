@@ -63,6 +63,12 @@ namespace E_Books.Data.Services
             return await bookDetails;
         }
 
+        public async Task<IEnumerable<Book>> GetBooksByPublisherId(int Id)
+        {
+            var books = await _context.Books.Where(b => b.PublisherId == Id).ToListAsync();
+            return books;
+        }
+
         public async Task<NewBookDropdownsVM> GetNewBookDropdownVals()
         {
             var response = new NewBookDropdownsVM()
