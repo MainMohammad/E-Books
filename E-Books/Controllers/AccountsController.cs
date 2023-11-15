@@ -4,6 +4,7 @@ using E_Books.Data.ViewModels;
 using E_Books.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_Books.Controllers
 {
@@ -90,6 +91,27 @@ namespace E_Books.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Books");
+        }
+
+        public async Task<IActionResult> Details()
+        {
+            var loggedInUser = await _userManager.GetUserAsync(HttpContext.User);
+            if (loggedInUser is null)
+                return View("NotFound");
+
+            SignupVM thisUser = new SignupVM()
+            {
+                FullName = loggedInUser.FullName,
+                EmailAddress = loggedInUser.Email,
+            };
+
+            return View(thisUser);
+        }
+
+        public async Task<IActionResult> getAllUsers()
+        {
+            var allUsers = await _userManager.Users.ToListAsync();
+            return View(allUsers);
         }
     }
 }

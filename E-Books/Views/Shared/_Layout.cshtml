@@ -14,7 +14,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white" style="justify-content: center; height: 60px">
-            <a class="navbar-brand" style=" margin: 10px" asp-controller="Home" asp-action="Index">E-Books<figcaption style="font-size: 15px">For specials</figcaption></a>
+            <a class="navbar-brand" style=" margin: 10px" asp-controller="Books" asp-action="Index">E-Books<figcaption style="font-size: 15px">For specials</figcaption></a>
             <form class="form-inline my-2 my-lg-0" style="display: inline-flex;" asp-controller="Books" asp-action="Search">
                 <input name="searchString" style="height: 48px;" type="text" class="form-control" placeholder="Search for a Book" />
                 <button class="btn btn-outline-dark my-2 my-sm-0" style="height: 48px; width: 48px; margin: 5px" type="submit"><i class="bi bi-search"></i></button>
@@ -32,7 +32,12 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="Dropdown">
-                            <a class="dropdown-item" asp-controller="" asp-action="">Details</a>
+                            <a class="dropdown-item" asp-controller="Accounts" asp-action="Details">Details</a>
+                            <a class="dropdown-item" asp-controller="Orders" asp-action="Index">Orders</a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a class="dropdown-item" asp-controller="Accounts" asp-action="getAllUsers">Users</a>
+                            }
                             <form asp-controller="Accounts" asp-action="Logout">
                                 <input class="btn btn-outline-danger col-md-12" value="Logout" type="submit"/>
                             </form>
