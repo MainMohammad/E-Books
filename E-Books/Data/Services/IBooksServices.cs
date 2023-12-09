@@ -1,7 +1,6 @@
 ﻿using E_Books.Data.Base;
 using E_Books.Data.ViewModels;
 using E_Books.Models;
-using System.Linq.Expressions;
 
 namespace E_Books.Data.Services
 {
@@ -11,5 +10,6 @@ namespace E_Books.Data.Services
         Task<NewBookDropdownsVM> GetNewBookDropdownVals();
         Task AddNewBook(NewBookVM data);
         Task<IEnumerable<Book>> GetBooksByPublisherId(int Id);
+        Task UpdateBookAsync(NewBookVM data);
     }
 }

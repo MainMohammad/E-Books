@@ -2,10 +2,13 @@
 
 @{
     ViewData["Title"] = "Available books";
+    Pager<Book> curPageBooks = ViewData["curPage"] as Pager<Book>;
+    var prevDisabled = !curPageBooks.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !curPageBooks.HasNextPage ? "disabled" : "";
 }
 
 <div class="row">
-    @foreach (var item in Model)
+    @foreach (var item in curPageBooks)
     {
         <div class="col-md-2 col-xs-3 border-primary mb-3">
             @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
@@ -44,6 +47,10 @@
             </div>
         </div>
     }
+</div>
+<div class="container">
+    <a asp-action="Index" asp-route-pageNumber="@(curPageBooks.PageIndex - 1)" class="btn btn-defualt @prevDisabled">Previous</a>
+    <a asp-action="Index" asp-route-pageNumber="@(curPageBooks.PageIndex + 1)" class="btn btn-defualt @nextDisabled">Next</a>
 </div>
 
 @await Html.PartialAsync("_Createitem", "Books")

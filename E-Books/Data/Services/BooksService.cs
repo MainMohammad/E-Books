@@ -2,7 +2,6 @@
 using E_Books.Data.ViewModels;
 using E_Books.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
 
 namespace E_Books.Data.Services
 {
@@ -16,7 +15,7 @@ namespace E_Books.Data.Services
 
         public async Task AddNewBook(NewBookVM data)
         {
-            var newBook = new Book() 
+            var newBook = new Book()
             {
                 Title = data.Title,
                 PublishDate = data.PublishDate,
@@ -29,7 +28,7 @@ namespace E_Books.Data.Services
             await _context.Books.AddAsync(newBook);
             await _context.SaveChangesAsync();
 
-            foreach(var authorId in data.AuthorIds)
+            foreach (var authorId in data.AuthorIds)
             {
                 var newAuthorBook = new Author_Book()
                 {
@@ -40,7 +39,7 @@ namespace E_Books.Data.Services
             }
             await _context.SaveChangesAsync();
 
-            foreach(var bookstoreId in data.BookStoreIds)
+            foreach (var bookstoreId in data.BookStoreIds)
             {
                 var newBookStoresBook = new BookStore_Book()
                 {
@@ -76,9 +75,42 @@ namespace E_Books.Data.Services
                 Authors = await _context.Authors.OrderBy(a => a.Name).ToListAsync(),
                 Publishers = await _context.Publishers.OrderBy(p => p.Name).ToListAsync(),
                 BookStores = await _context.BookStores.OrderBy(bs => bs.Name).ToListAsync()
-            }; 
-            
+            };
+
             return response;
         }
-}
+
+        public async Task UpdateBookAsync(NewBookVM data)
+        {
+            var dbBook = await _context.Books.FirstOrDefaultAsync(n => n.Id == data.Id);
+
+            if(dbBook != null)
+            {
+                dbBook.Id = data.Id;
+                dbBook.Title = data.Title;
+                dbBook.PublishDate = data.PublishDate;
+                dbBook.Price = data.Price;
+                dbBook.Summary = data.Summary;
+                dbBook.BookCover = data.BookCover;
+                dbBook.Genre = data.Genre;
+                dbBook.PublisherId = data.PublisherId;
+                await _context.SaveChangesAsync();
+            }
+
+            var exitingAuthorsDb = await _context.Authors_Books.Where(n => n.BookId == data.Id).ToListAsync();
+            _context.Authors_Books.RemoveRange(exitingAuthorsDb);
+            await _context.SaveChangesAsync();
+
+            foreach(var authorId in data.AuthorIds)
+            {
+                var newAuthorBook = new Author_Book()
+                {
+                    BookId = data.Id,
+                    AuthorId = authorId
+                };
+                await _context.Authors_Books.AddAsync(newAuthorBook);
+            }
+            await _context.SaveChangesAsync();
+        }
+    }
 }

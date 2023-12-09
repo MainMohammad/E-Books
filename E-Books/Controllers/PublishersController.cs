@@ -1,8 +1,6 @@
-﻿using E_Books.Data;
-using E_Books.Data.Services;
+﻿using E_Books.Data.Services;
 using E_Books.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace E_Books.Controllers
 {
@@ -14,9 +12,12 @@ namespace E_Books.Controllers
             _service = service;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? pageNumber)
         {
+            int pageSize = 5;
             var publishers = await _service.GetAllAsync();
+            var data = Pager<Publisher>.Create(publishers.ToList(), pageNumber ?? 1, pageSize);
+            ViewData["curPage"] = data;
             return View(publishers);
         }
 

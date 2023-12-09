@@ -1,5 +1,4 @@
-﻿using E_Books.Data.Base;
-using E_Books.Data.Enums;
+﻿using E_Books.Data.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,6 +6,8 @@ namespace E_Books.Data.ViewModels
 {
     public class NewBookVM
     {
+        public int Id { get; set; }
+
         [Display(Name = "Book Title")]
         [Required(ErrorMessage = "Title is required!")]
         public string Title { get; set; }

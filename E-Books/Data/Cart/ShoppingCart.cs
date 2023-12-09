@@ -1,5 +1,4 @@
-﻿using E_Books.Data;
-using E_Books.Models;
+﻿using E_Books.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Books.Data.Cart

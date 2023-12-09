@@ -2,6 +2,9 @@
 
 @{
     ViewData["Title"] = "List of Authors";
+    Pager<Author> curPageAuthors = ViewData["curPage"] as Pager<Author>;
+    var prevDisabled = !curPageAuthors.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !curPageAuthors.HasNextPage ? "disabled" : "";
 }
 
 <div class="row">
@@ -16,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach(var author in Model)
+                @foreach(var author in curPageAuthors)
                 {
                     <tr>
                         <td class="align-middle">
@@ -46,6 +49,10 @@
                 }
             </tbody>
         </table>
+        <div class="container">
+            <a asp-action="Index" asp-route-pageNumber="@(curPageAuthors.PageIndex - 1)" class="btn btn-defualt @prevDisabled">Previous</a>
+            <a asp-action="Index" asp-route-pageNumber="@(curPageAuthors.PageIndex + 1)" class="btn btn-defualt @nextDisabled">Next</a>
+        </div>
     </div>
 </div>
 

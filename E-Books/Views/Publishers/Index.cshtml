@@ -2,6 +2,9 @@
 
 @{
     ViewData["Title"] = "List of Publishers";
+    Pager<Publisher> curPagePublishers = ViewData["curPage"] as Pager<Publisher>;
+    var prevDisabled = !curPagePublishers.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !curPagePublishers.HasNextPage ? "disabled" : "";
 }
 
 <div class="row">
@@ -16,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var publisher in Model)
+                @foreach (var publisher in curPagePublishers)
                 {
                     <tr>
                         <td class="align-middle">
@@ -46,6 +49,10 @@
                 }
             </tbody>
         </table>
+        <div class="container">
+            <a asp-action="Index" asp-route-pageNumber="@(curPagePublishers.PageIndex - 1)" class="btn btn-defualt @prevDisabled">Previous</a>
+            <a asp-action="Index" asp-route-pageNumber="@(curPagePublishers.PageIndex + 1)" class="btn btn-defualt @nextDisabled">Next</a>
+        </div>
     </div>
 </div>
 @await Html.PartialAsync("_CreateItem", "Publishers")

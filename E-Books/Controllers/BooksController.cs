@@ -1,9 +1,8 @@
-﻿using E_Books.Data;
-using E_Books.Data.Services;
+﻿using E_Books.Data.Services;
 using E_Books.Data.ViewModels;
+using E_Books.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace E_Books.Controllers
 {
@@ -15,21 +14,29 @@ namespace E_Books.Controllers
             _service = service;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? pageNumber)
         {
+            int pageSize = 12;
             var books = await _service.GetAllAsync();
+            var data = Pager<Book>.Create(books.ToList(), pageNumber ?? 1, pageSize);
+            ViewData["curPage"] = data;
             return View(books);
         }
 
-        public async Task<IActionResult> Search(string searchString)
+        public async Task<IActionResult> Search(string searchString, int? pageNumber)
         {
+            int pageSize = 12;
             var books = await _service.GetAllAsync();
             if (!string.IsNullOrEmpty(searchString))
             {
                 var filteredBooks = books.Where(b => b.Title.Contains(searchString, StringComparison.OrdinalIgnoreCase) || b.Summary.Contains(searchString, StringComparison.OrdinalIgnoreCase))
                     .ToList();
+                var data1 = Pager<Book>.Create(filteredBooks.ToList(), pageNumber ?? 1, pageSize);
+                ViewData["curPage"] = data1;
                 return View("Index", filteredBooks);
             }
+            var data2 = Pager<Book>.Create(books.ToList(), pageNumber ?? 1, pageSize);
+            ViewData["curPage"] = data2;
             return View("Index", books);
         }
 
@@ -62,6 +69,57 @@ namespace E_Books.Controllers
                 return View(book);
             }
             await _service.AddNewBook(book);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Edit(int Id)
+        {
+            var bookDetails = await _service.GetBookById(Id);
+
+            if (bookDetails == null)
+                return View("NotFound");
+
+            var response = new NewBookVM()
+            {
+                Id = bookDetails.Id,
+                Title = bookDetails.Title,
+                PublishDate = bookDetails.PublishDate,
+                Price = bookDetails.Price,
+                Summary = bookDetails.Summary,
+                BookCover = bookDetails.BookCover,
+                Genre = bookDetails.Genre,
+                AuthorIds = bookDetails.Authors_Books.Select(n => n.AuthorId).ToList(),
+                BookStoreIds = bookDetails.BookStores_Books.Select(n => n.BookStoreId).ToList(),
+                PublisherId = bookDetails.PublisherId,
+            };
+
+            var bookDropDownData = await _service.GetNewBookDropdownVals();
+
+            ViewBag.Authors = new SelectList(bookDropDownData.Authors, "Id", "Name");
+            ViewBag.Publishers = new SelectList(bookDropDownData.Publishers, "Id", "Name");
+            ViewBag.BookStores = new SelectList(bookDropDownData.BookStores, "Id", "Name");
+
+            return View(response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int Id, NewBookVM book)
+        {
+            if (Id != book.Id)
+                return View("NotFound");
+
+            if(!ModelState.IsValid)
+            {
+                var bookDropDownData = await _service.GetNewBookDropdownVals();
+
+                ViewBag.Authors = new SelectList(bookDropDownData.Authors, "Id", "Name");
+                ViewBag.Publishers = new SelectList(bookDropDownData.Publishers, "Id", "Name");
+                ViewBag.BookStores = new SelectList(bookDropDownData.BookStores, "Id", "Name");
+
+                return View(book);
+            }
+
+            await _service.UpdateBookAsync(book);
             return RedirectToAction(nameof(Index));
         }
     }
