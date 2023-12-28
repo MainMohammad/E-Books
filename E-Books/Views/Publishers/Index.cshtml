@@ -2,9 +2,10 @@
 
 @{
     ViewData["Title"] = "List of Publishers";
-    Pager<Publisher> curPagePublishers = ViewData["curPage"] as Pager<Publisher>;
-    var prevDisabled = !curPagePublishers.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !curPagePublishers.HasNextPage ? "disabled" : "";
+    int pageIndex = (int)ViewData["pageIndex"];
+    int totalPages = (int)ViewData["TotalPages"];
+    var prevDisabled = !(pageIndex > 1) ? "disabled" : "";
+    var nextDisabled = !(pageIndex < totalPages) ? "disabled" : "";
 }
 
 <div class="row">
@@ -19,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var publisher in curPagePublishers)
+                @foreach (var publisher in Model)
                 {
                     <tr>
                         <td class="align-middle">
@@ -49,10 +50,10 @@
                 }
             </tbody>
         </table>
-        <div class="container">
-            <a asp-action="Index" asp-route-pageNumber="@(curPagePublishers.PageIndex - 1)" class="btn btn-defualt @prevDisabled">Previous</a>
-            <a asp-action="Index" asp-route-pageNumber="@(curPagePublishers.PageIndex + 1)" class="btn btn-defualt @nextDisabled">Next</a>
-        </div>
     </div>
+</div>
+<div class="container" style="margin-left:560px">
+    <a asp-action="Index" asp-route-pageNumber="@(pageIndex - 1)" class="btn btn-primary @prevDisabled">Prev</a>
+    <a asp-action="Index" asp-route-pageNumber="@(pageIndex + 1)" class="btn btn-primary @nextDisabled">Next</a>
 </div>
 @await Html.PartialAsync("_CreateItem", "Publishers")

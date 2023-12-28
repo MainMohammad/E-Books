@@ -15,9 +15,9 @@ namespace E_Books.Controllers
         public async Task<IActionResult> Index(int? pageNumber)
         {
             int pageSize = 5;
-            var bookStores = await _service.GetAllAsync();
-            var data = Pager<BookStore>.Create(bookStores.ToList(), pageNumber ?? 1, pageSize);
-            ViewData["curPage"] = data;
+            var bookStores = await _service.GetPageAsync(pageNumber ?? 1, pageSize);
+            ViewData["TotalPages"] = await _service.TotalPages(pageSize);
+            ViewData["PageIndex"] = pageNumber ?? 1;
             return View(bookStores);
         }
 

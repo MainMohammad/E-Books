@@ -3,6 +3,7 @@ using E_Books.Data.ViewModels;
 using E_Books.Data.Cart;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
 
 namespace E_Books.Controllers
 {
@@ -72,10 +73,13 @@ namespace E_Books.Controllers
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             string userEmailAddress = User.FindFirstValue(ClaimTypes.Email);
 
-            await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
-            await _shoppingCart.ClearShoppingCartAsync();
-
-            return View("OrderCompleted");
+            if (!items.IsNullOrEmpty())
+            {
+                await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
+                await _shoppingCart.ClearShoppingCartAsync();
+                return View("OrderCompleted");
+            }
+            return Redirect("~/Books");
         }
     }
 }

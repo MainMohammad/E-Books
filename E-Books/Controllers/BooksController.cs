@@ -3,6 +3,7 @@ using E_Books.Data.ViewModels;
 using E_Books.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.IdentityModel.Tokens;
 
 namespace E_Books.Controllers
 {
@@ -17,27 +18,20 @@ namespace E_Books.Controllers
         public async Task<IActionResult> Index(int? pageNumber)
         {
             int pageSize = 12;
-            var books = await _service.GetAllAsync();
-            var data = Pager<Book>.Create(books.ToList(), pageNumber ?? 1, pageSize);
-            ViewData["curPage"] = data;
+            var books = await _service.GetPageAsync(pageNumber ?? 1, pageSize);
+            ViewData["TotalPages"] = await _service.TotalPages(pageSize);
+            ViewData["PageIndex"] = pageNumber ?? 1;
             return View(books);
         }
 
-        public async Task<IActionResult> Search(string searchString, int? pageNumber)
+        public async Task<IActionResult> Search(string searchString)
         {
-            int pageSize = 12;
-            var books = await _service.GetAllAsync();
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                var filteredBooks = books.Where(b => b.Title.Contains(searchString, StringComparison.OrdinalIgnoreCase) || b.Summary.Contains(searchString, StringComparison.OrdinalIgnoreCase))
-                    .ToList();
-                var data1 = Pager<Book>.Create(filteredBooks.ToList(), pageNumber ?? 1, pageSize);
-                ViewData["curPage"] = data1;
-                return View("Index", filteredBooks);
-            }
-            var data2 = Pager<Book>.Create(books.ToList(), pageNumber ?? 1, pageSize);
-            ViewData["curPage"] = data2;
-            return View("Index", books);
+            if (string.IsNullOrEmpty(searchString))
+                return RedirectToAction(nameof(Index));
+            var result = await _service.SearchAsync(searchString);
+            if (result.IsNullOrEmpty())
+                return View("NotFound");
+            return View(result);
         }
 
         public async Task<IActionResult> Details(int Id)
@@ -120,6 +114,25 @@ namespace E_Books.Controllers
             }
 
             await _service.UpdateBookAsync(book);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(int Id)
+        {
+            var book_to_delete = await _service.GetBookById(Id);
+            if(book_to_delete == null)
+                return View("NotFound");
+            return View(book_to_delete);
+        }
+
+        [HttpPost,  ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int Id)
+        {
+            var book_to_delete = await _service.GetBookById(Id);
+            if (book_to_delete == null)
+                return View("NotFound");
+
+            await _service.DeleteAsync(Id);
             return RedirectToAction(nameof(Index));
         }
     }

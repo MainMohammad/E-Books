@@ -2,6 +2,8 @@
 using E_Books.Data.ViewModels;
 using E_Books.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace E_Books.Data.Services
 {
@@ -62,12 +64,6 @@ namespace E_Books.Data.Services
             return await bookDetails;
         }
 
-        public async Task<IEnumerable<Book>> GetBooksByPublisherId(int Id)
-        {
-            var books = await _context.Books.Where(b => b.PublisherId == Id).ToListAsync();
-            return books;
-        }
-
         public async Task<NewBookDropdownsVM> GetNewBookDropdownVals()
         {
             var response = new NewBookDropdownsVM()
@@ -80,11 +76,19 @@ namespace E_Books.Data.Services
             return response;
         }
 
+        public async Task<IEnumerable<Book>> SearchAsync(string searchString)
+        {
+            var Books = await _context.Books.ToListAsync();
+            var filteredBooks = Books.Where(b => b.Title.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+            return filteredBooks;
+        }
+
         public async Task UpdateBookAsync(NewBookVM data)
         {
             var dbBook = await _context.Books.FirstOrDefaultAsync(n => n.Id == data.Id);
 
-            if(dbBook != null)
+            if (dbBook != null)
             {
                 dbBook.Id = data.Id;
                 dbBook.Title = data.Title;
@@ -101,7 +105,7 @@ namespace E_Books.Data.Services
             _context.Authors_Books.RemoveRange(exitingAuthorsDb);
             await _context.SaveChangesAsync();
 
-            foreach(var authorId in data.AuthorIds)
+            foreach (var authorId in data.AuthorIds)
             {
                 var newAuthorBook = new Author_Book()
                 {

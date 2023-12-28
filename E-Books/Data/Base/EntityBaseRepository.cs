@@ -27,9 +27,9 @@ namespace E_Books.Data.Base
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetPageAsync(int? pageNumber, int pageSize)
         {
-            var result = await _context.Set<T>().ToListAsync();
+            var result = await _context.Set<T>().Skip((int)((pageNumber - 1) * pageSize)).Take(pageSize).ToListAsync();
             return result;
         }
 
@@ -39,13 +39,18 @@ namespace E_Books.Data.Base
             return result;
         }
 
+        public async Task<int> TotalPages(int pageSize)
+        {
+            int count = await _context.Set<T>().CountAsync();
+            int totalPages = (int)Math.Ceiling(count / (double)pageSize);
+            return totalPages;
+        }
+
         public async Task UpdateAsync(int id, T entity)
         {
             EntityEntry entityEntry = _context.Entry<T>(entity);
             entityEntry.State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
-
-        
     }
 }
